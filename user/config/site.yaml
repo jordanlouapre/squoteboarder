@@ -1,13 +1,23 @@
 title: Squoteboarder
 default_lang: en
 author:
-  name: 'Jordan Louapre'
+  name: 'Jordan LOUAPRE'
   email: jordan.louapre@gmail.com
 taxonomies:
+  - post_type
   - category
   - tag
+  - author
+  - source_media
+  # - post_type
+  # - quote_author
+  # - quote_category
+  # - quote_tag
+  # - source_media
+  # - category
+  # - tag
 metadata:
-  description: 'Place where skateboarders quote'
+  description: 'Quoting is not a crime.'
 summary:
   enabled: true
   format: short
@@ -15,3 +25,5 @@ summary:
   delimiter: '==='
 blog:
   route: /blog
+skateboarders:
+  ekoston: 'Eric Koston|froston'

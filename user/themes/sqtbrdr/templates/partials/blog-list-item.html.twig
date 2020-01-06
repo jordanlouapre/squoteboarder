@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="card-title">
+        <a href="{{ page.url }}">{{ page.title }}</a>
+    </div>
+    <div class="card-body">
+        {% if page.summary != page.content %}
+            {{ page.summary|raw }}
+        {% else %}
+            {{ page.content|raw }}
+        {% endif %}
+        {% include 'partials/blog/taxonomy.html.twig' %}
+    </div>
+</div>

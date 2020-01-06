@@ -1,0 +1,29 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+
+{% set collection = page.collection() %}
+
+{% for child in collection %}
+    {% include 'partials/blog-list-item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
+{% endfor %}
+{# Render the pagination list #}
+{% if config.plugins.pagination.enabled and collection.params.pagination %}
+    {% include 'partials/blog/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
+{% endif %}
+<p>Sidebar</p>
+<hr>
+{% if page.route == '/quotes' %}
+    <p>Tags : {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/quotes', taxonomy: 'tag', children_only: true} %}</p>
+    <p>Catégories : {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/quotes', taxonomy: 'category', children_only: true} %}</p>
+{% elseif page.route == '/blog' %}
+    <p>Tags : {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/blog', taxonomy: 'tag', children_only: true} %}</p>
+    <p>Catégories : {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/blog', taxonomy: 'category', children_only: true} %}</p>
+{% endif %}
+<hr>
+{% include 'partials/blog/archives.html.twig' with {'base_url':page.url} %}
+
+{% endblock %}
+
+
+

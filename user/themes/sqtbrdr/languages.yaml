@@ -1,0 +1,32 @@
+en:
+  PLUGIN_ADMIN:
+    CONFIG_SITE_SKATEBOARDERS: "Skateboarders"
+    CONFIG_SITE_SKATEBOARDERS_HELP: "Skateboard riders metadatas, ex. 'name|instagram'"
+    CONFIG_SITE_SKATEBOARDERS_KEY: "Id ex. 'ekoston'"
+    CONFIG_SITE_SKATEBOARDERS_VALUE: "Formatted metadatas ex. 'name|instagram'"
+    CONFIG_SITE_SOURCE_MEDIAS: "Source medias"
+    CONFIG_SITE_SOURCE_MEDIAS_HELP: "Source medias metadatas, ex. 'titl|site'"
+    CONFIG_SITE_SOURCE_MEDIAS_KEY: "Id ex. 'thrashermagazine'"
+    CONFIG_SITE_SOURCE_MEDIAS_VALUE: "Source medias metadatas ex. 'title|site'"
+    ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_TYPE: "Source media type"
+    ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_TYPE_HELP: "Determine the source media type"
+  THEME_SQTBRDR:
+    BLOG:
+      ITEM:
+        CONTINUE_READING: Continue reading...
+fr:
+  PLUGIN_ADMIN:
+    CONFIG_SITE_SKATEBOARDERS: "Skateboarders"
+    CONFIG_SITE_SKATEBOARDERS_HELP: "Metadatas riders skateboard, ex. 'name|instagram'"
+    CONFIG_SITE_SKATEBOARDERS_KEY: "Identifiant ex. 'ekoston'"
+    CONFIG_SITE_SKATEBOARDERS_VALUE: "Metadatas formatées ex. 'name|instagram'"
+    CONFIG_SITE_SOURCE_MEDIAS: "Médias source"
+    CONFIG_SITE_SOURCE_MEDIAS_HELP: "Métadatas médias source, ex. 'titl|site'"
+    CONFIG_SITE_SOURCE_MEDIAS_KEY: "Identifiant ex. 'thrashermagazine'"
+    CONFIG_SITE_SOURCE_MEDIAS_VALUE: "Métadatas médias source ex. 'title|site'"
+    ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_TYPE: "Type média source"
+    ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_TYPE_HELP: "Définir le type de média source"
+  THEME_SQTBRDR:
+    BLOG:
+      ITEM:
+        CONTINUE_READING: Lire plus...

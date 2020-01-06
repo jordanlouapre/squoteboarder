@@ -1,0 +1,53 @@
+title: Quote
+'@extends':
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        options:
+          fields:
+            quote:
+              type: section
+              title: Quote
+              fields:
+                header.quote.source_media_type:
+                  type: select
+                  size: long
+                  classes: fancy
+                  label: PLUGIN_ADMIN.ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_TYPE
+                  help: PLUGIN_ADMIN.ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_TYPE_HELP
+                  options:
+                    magazine: PLUGIN_ADMIN.ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_TYPE_OPTION_MAGAZINE
+                    podcast: PLUGIN_ADMIN.ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_TYPE_OPTION_PODCAST
+                    website: PLUGIN_ADMIN.ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_TYPE_OPTION_WEBSITE
+                header.quote.source_media_issue:
+                  type: month
+                  classes: fancy
+                  label: PLUGIN_ADMIN.ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_ISSUE
+                  help: PLUGIN_ADMIN.ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_ISSUE_HELP
+                header.quote.source_media_issue_number:
+                  type: number
+                  classes: fancy
+                  label: PLUGIN_ADMIN.ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_ISSUE_NUMBER
+                  help: PLUGIN_ADMIN.ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_ISSUE_NUMBER_HELP
+                header.quote.source_media_issue_date:
+                  type: date
+                  classes: fancy
+                  label: PLUGIN_ADMIN.ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_ISSUE_DATE
+                  help: PLUGIN_ADMIN.ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_ISSUE_DATE_HELP
+                header.quote.source_media_section:
+                  type: text
+                  classes: fancy
+                  label: PLUGIN_ADMIN.ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_SECTION
+                  help: PLUGIN_ADMIN.ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_SECTION_HELP
+                header.quote.source_media_url:
+                  type: url
+                  classes: fancy
+                  label: PLUGIN_ADMIN.ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_URL
+                  help: PLUGIN_ADMIN.ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_URL_HELP

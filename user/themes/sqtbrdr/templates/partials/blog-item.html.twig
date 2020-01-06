@@ -1,0 +1,10 @@
+<div class="content-item h-entry">
+    <div class="card-title">
+        {{ page.title }}
+    </div>
+    <div class="e-content">
+        {{ page.content|raw }}
+        <p>{% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/quotes', taxonomy: 'tag', children_only: true} %}</p>
+        <p>{% include 'partials/blog/relatedpages.html.twig' %}</p>
+    </div>
+</div>

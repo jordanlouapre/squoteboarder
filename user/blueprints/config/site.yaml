@@ -1,0 +1,29 @@
+@extends:
+  '@parent'
+
+form:
+    fields:
+        skateboarder_section:
+            type: section
+            title: Skateboarders
+            underline: true
+
+            fields:
+              skateboarders:
+                type: array
+                label: PLUGIN_ADMIN.CONFIG_SITE_SKATEBOARDERS
+                help: PLUGIN_ADMIN.CONFIG_SITE_SKATEBOARDERS_HELP
+                placeholder_key: PLUGIN_ADMIN.CONFIG_SITE_SKATEBOARDERS_KEY
+                placeholder_value: PLUGIN_ADMIN.CONFIG_SITE_SKATEBOARDERS_VALUE
+        source_media_section:
+            type: section
+            title: Source medias
+            underline: true
+
+            fields:
+              source_medias:
+                type: array
+                label: PLUGIN_ADMIN.CONFIG_SITE_SOURCE_MEDIAS
+                help: PLUGIN_ADMIN.CONFIG_SITE_SOURCE_MEDIAS_HELP
+                placeholder_key: PLUGIN_ADMIN.CONFIG_SITE_SOURCE_MEDIAS_KEY
+                placeholder_value: PLUGIN_ADMIN.CONFIG_SITE_SOURCE_MEDIAS_VALUE

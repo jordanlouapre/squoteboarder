@@ -21,10 +21,12 @@ user/accounts/*
 !user/accounts/.*
 user/data/*
 !user/data/.*
+user/pages/*
+!user/pages/.*
 user/plugins/*
 !user/plugins/.*
-user/themes/*
-!user/themes/.*
+user/themes/quark*
+!user/themes/quark.*
 user/localhost/config/security.yaml
 user/config/security.yaml
 
