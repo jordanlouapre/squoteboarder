@@ -1,8 +1,11 @@
 <div class="card">
     <div class="card-title">
-        <a href="{{ page.url }}">{{ page.title }}</a>
+        <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
     </div>
     <div class="card-body">
+        <div>
+            {{ media_directory('user/pages/images')[page.header.featured.featured_image|first.name].cropResize(200,200).html('My title', 'Some ALT text', 'myclass') }}
+       </div>
         {% if page.summary != page.content %}
             {{ page.summary|raw }}
         {% else %}

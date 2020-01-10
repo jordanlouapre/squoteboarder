@@ -10,6 +10,10 @@ form:
       active: 1
 
       fields:
+        # content:
+        #   fields:
+        #       header.media_order:
+        #         '@unset': true
         options:
           fields:
             quote:
@@ -51,3 +55,16 @@ form:
                   classes: fancy
                   label: PLUGIN_ADMIN.ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_URL
                   help: PLUGIN_ADMIN.ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_URL_HELP
+            featured:
+              type: section
+              title: Featured
+              fields:
+                header.featured.featured_image:
+                  type: file
+                  label: Image
+                  destination: 'user/pages/images'
+                  multiple: false
+                  autofocus: false
+                  avoid_overwriting: true
+                  accept:
+                    - image/*
