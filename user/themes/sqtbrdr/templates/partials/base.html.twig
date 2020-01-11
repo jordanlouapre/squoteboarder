@@ -44,6 +44,9 @@
                 <i class="fa fa-rebel"></i>
                 {{ config.site.title }}
             </a>
+            {% block header_search %}
+                {% include 'partials/search/simplesearch_searchbox.html.twig' %}
+            {% endblock %}
             {% block header_navigation %}
             <nav class="main-nav">
                 {% include 'partials/navigation.html.twig' %}

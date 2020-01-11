@@ -3,6 +3,18 @@
 
 form:
     fields:
+        site_custom_config_section:
+          type: section
+          title: Configuration personnalisée
+          underline: true
+
+          fields:
+            images_dir:
+              type: text
+              classes: fancy
+              label: PLUGIN_ADMIN.CONFIG_SITE_IMAGES_DIR
+              help: PLUGIN_ADMIN.CONFIG_SITE_IMAGES_DIR_HELP
+
         skateboarder_section:
             type: section
             title: Skateboarders

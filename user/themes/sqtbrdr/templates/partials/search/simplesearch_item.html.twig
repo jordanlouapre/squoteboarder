@@ -1,0 +1,29 @@
+<section class="search-row">
+
+    {% set banner = page.media.images|first %}
+    {% set featured_thumbnail = page.header.featured.featured_image|first %}
+
+    {% if banner %}
+        <div class="search-image">
+            <a href="{{ page.url }}">{{ banner.cropZoom(100,100).html|raw }}</a>
+        </div>
+    {% endif %}
+    {% if featured_thumbnail %}
+        <div class="search-image">
+            <a href="{{ page.url }}">{{ media_directory(site.images_dir)[featured_thumbnail.name].cropResize(100,100).html() }}</a>
+        </div>
+    {% endif %}
+    <div class="search-item">
+        <div class="search-title">
+            <h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
+        </div>
+
+        <div class="search-details">
+            <span class="search-date">{{ page.date|date(config.system.pages.dateformat.short) }}</span>
+        </div>
+
+        <p>{{ page.summary|raw }}</p>
+
+        <hr/>
+    </div>
+</section>

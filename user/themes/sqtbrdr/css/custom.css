@@ -177,3 +177,13 @@ blockquote {
 .langswitcher {
     float:right;
 }
+
+.search-wrapper {
+    padding: 5px 50px;
+    float:left;
+    width: auto;
+}
+.search-input {
+    padding: 4px;
+    width: 250px !important;
+}
