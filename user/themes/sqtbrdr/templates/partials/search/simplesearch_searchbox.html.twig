@@ -1,9 +1,9 @@
 {% set min_chars = config.get('plugins.simplesearch.min_query_length', 3) %}
-<div class="search-wrapper">
-    <form name="search" data-simplesearch-form>
+<form name="search" data-simplesearch-form>
+    <div class="input-group input-inline">
         <input
             name="searchfield"
-            class="search-input"
+            class="form-input search-input"
             type="text"
             {% if min_chars > 0 %} min="{{- min_chars -}}" {% endif %}
             required
@@ -14,9 +14,9 @@
             data-search-input="{{ base_url }}{{ config.plugins.simplesearch.route == '@self' ? '' : (config.plugins.simplesearch.route == '/' ? '' : config.plugins.simplesearch.route) }}/query"
         />
         {% if config.plugins.simplesearch.display_button %}
-            <button type="submit" class="search-submit">
-                <img src="{{ url('plugin://simplesearch/assets/search.svg') }}" />
-            </button>
+            <button class="btn btn-primary input-group-btn">Search</button>
         {% endif %}
-    </form>
-</div>
+    </div>
+</form>
+
+

@@ -17,18 +17,18 @@
     <link rel="alternate" type="application/atom+xml" title="My Feed" href="{{ page.url(true, true) }}.atom" />
     <link rel="alternate" type="application/rss+xml" title="My Feed" href="{{ page.url(true, true) }}.rss" />
     <link rel="alternate" type="application/json" title="My Feed" href="{{ page.url(true, true) }}.json" />
-
 {% endblock head %}
 
 {% block stylesheets %}
-    {% do assets.addCss('https://unpkg.com/purecss@1.0.0/build/pure-min.css', 100) %}
-    {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 99) %}
-    {% do assets.addCss('theme://css/custom.css', 98) %}
+    {% do assets.addCss('https://unpkg.com/spectre.css/dist/spectre.min.css', 100) %}
+    {% do assets.addCss('https://unpkg.com/spectre.css/dist/spectre-exp.min.css', 99) %}
+    {% do assets.addCss('https://unpkg.com/spectre.css/dist/spectre-icons.min.css', 98) %}
+    {% do assets.addCss('theme://css/custom.css', 97) %}
 {% endblock %}
 
-{% block javascripts %}
+{# {% block javascripts %}
     {% do assets.addJs('jquery', 100) %}
-{% endblock %}
+{% endblock %} #}
 
 {% block assets deferred %}
     {{ assets.css()|raw }}
@@ -37,44 +37,70 @@
 </head>
 <body id="top" class="{{ page.header.body_classes }}">
 
+<div class="page-wrapper">
+{% block pre_header %}
+    <div id="pre-header" class="container grid-xl">
+        <nav class="navbar float-right">
+            {% block pre_header_navigation %}
+                <section class="navbar-section">
+                    {% include 'partials/langswitcher.html.twig' %}
+                </section>
+            {% endblock %}
+        </nav>
+    </div>
+{% endblock %}
 {% block header %}
-    <div class="header">
-        <div class="wrapper padding">
-            <a class="logo left" href="{{ home_url }}">
-                <i class="fa fa-rebel"></i>
-                {{ config.site.title }}
-            </a>
+    <header id="header" class="container grid-xl">
+        <nav class="navbar">
+            {% block header_brand %}
+                <section class="navbar-section">
+                    <a href="{{ home_url }}" title="{{ config.site.title }}" class="navbar-brand mr-2">
+                        <img src="{{ url("theme://images/logo.svg") }}" alt="" class="navbar-logo" />
+                    </a>
+                </section>
+            {% endblock %}
             {% block header_search %}
-                {% include 'partials/search/simplesearch_searchbox.html.twig' %}
+                <section class="navbar-center">
+                    {% include 'partials/search/simplesearch_searchbox.html.twig' %}
+                </section>
             {% endblock %}
             {% block header_navigation %}
-            <nav class="main-nav">
-                {% include 'partials/navigation.html.twig' %}
-            </nav>
+                <section class="navbar-section">
+                    {% include 'partials/navigation.html.twig' %}
+                </section>
             {% endblock %}
-        </div>
-    </div>
+        </nav>
+    </header>
 {% endblock %}
 
 {% block body %}
-    <section id="body">
-        <div class="wrapper padding">
+    <section id="content" class="container grid-xl">
         {% block content %}{% endblock %}
-        </div>
     </section>
 {% endblock %}
 
 {% block footer %}
-    <div class="footer text-center">
-        <div class="wrapper padding">
-            <p><a href="http://getgrav.org">Grav</a> was <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <a href="http://www.rockettheme.com">RocketTheme</a>.</p>
-        </div>
-    </div>
+    <footer id="footer">
+        {% block footer_top %}
+            <section class="footer-top">
+                <div class="container grid-xl">
+                    {% include 'partials/footer-top.html.twig' %}
+                </div>
+            </section>
+        {% endblock %}
+        {% block footer_bottom %}
+            <section class="footer-bottom">
+                <div class="container grid-xl">
+                    {% include 'partials/footer-bottom.html.twig' %}
+                </div>
+            </section>
+        {% endblock %}
+    </footer>
 {% endblock %}
 
 {% block bottom %}
     {{ assets.js('bottom')|raw }}
 {% endblock %}
-
+</div>
 </body>
 </html>

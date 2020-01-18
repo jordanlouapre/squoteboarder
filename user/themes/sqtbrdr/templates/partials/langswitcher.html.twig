@@ -1,4 +1,3 @@
-{# <ul class="langswitcher"> #}
 {% for language in langswitcher.languages %}
 
     {% set show_language = true %}
@@ -30,8 +29,7 @@
     {% endif %}
 
     {% if show_language %}
-        <li><a href="{{ lang_url ~ uri.params }}" class="external{{ active_class }}">{{ language|upper }}</a></li>
+        <a href="{{ lang_url ~ uri.params }}" class="btn btn-link external{{ active_class }}">{{ language|upper }}</a>
     {% endif %}
 
 {% endfor %}
-{# </ul> #}
