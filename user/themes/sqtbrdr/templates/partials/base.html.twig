@@ -39,43 +39,54 @@
 
 <div class="page-wrapper">
 {% block pre_header %}
-    <div id="pre-header" class="container grid-xl">
-        <nav class="navbar float-right">
-            {% block pre_header_navigation %}
-                <section class="navbar-section">
-                    {% include 'partials/langswitcher.html.twig' %}
-                </section>
-            {% endblock %}
-        </nav>
+    <div id="pre-header">
+        <div class="container grid-xl">
+            <nav class="navbar float-right">
+                {% block pre_header_navigation %}
+                    <section class="navbar-section">
+                        {% include 'partials/langswitcher.html.twig' %}
+                    </section>
+                {% endblock %}
+            </nav>
+        </div>
     </div>
 {% endblock %}
 {% block header %}
-    <header id="header" class="container grid-xl">
-        <nav class="navbar">
-            {% block header_brand %}
-                <section class="navbar-section">
-                    <a href="{{ home_url }}" title="{{ config.site.title }}" class="navbar-brand mr-2">
-                        <img src="{{ url("theme://images/logo.svg") }}" alt="" class="navbar-logo" />
-                    </a>
-                </section>
-            {% endblock %}
-            {% block header_search %}
-                <section class="navbar-center">
-                    {% include 'partials/search/simplesearch_searchbox.html.twig' %}
-                </section>
-            {% endblock %}
-            {% block header_navigation %}
-                <section class="navbar-section">
-                    {% include 'partials/navigation.html.twig' %}
-                </section>
-            {% endblock %}
-        </nav>
+    <header id="header">
+        <div class="container grid-xl">
+            <nav class="navbar">
+                {% block header_brand %}
+                    <section class="navbar-section">
+                        <a href="{{ home_url }}" title="{{ config.site.title }}" class="navbar-brand mr-2">
+                            <img src="{{ url("theme://images/logo.svg") }}" alt="" class="navbar-logo" />
+                        </a>
+                    </section>
+                {% endblock %}
+                {% block header_search %}
+                    <section class="navbar-center">
+                        {% include 'partials/search/simplesearch_searchbox.html.twig' %}
+                    </section>
+                {% endblock %}
+                {% block header_navigation %}
+                    <section class="navbar-section">
+                        {% include 'partials/navigation.html.twig' %}
+                    </section>
+                {% endblock %}
+            </nav>
+        </div>
     </header>
 {% endblock %}
 
 {% block body %}
-    <section id="content" class="container grid-xl">
-        {% block content %}{% endblock %}
+    <section id="content">
+        <div class="container grid-xl">
+            {% block breadcrumbs %}
+            <div class="page-utils">
+                {% include 'partials/breadcrumbs.html.twig' %}
+            </div>
+            {% endblock %}
+            {% block content %}{% endblock %}
+        </div>
     </section>
 {% endblock %}
 
