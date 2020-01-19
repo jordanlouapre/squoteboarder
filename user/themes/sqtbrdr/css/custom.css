@@ -1,5 +1,12 @@
 .page-wrapper {
-    padding: 0 6rem;
+    padding: 0 2rem;
+}
+#pre-header {
+    margin: 0 -2rem;
+    border-bottom: 1px solid #dadee4;
+}
+#pre-header .langswitcher {
+    text-align: right;
 }
 #header {
     padding-top:6rem;
@@ -11,15 +18,15 @@
 #content {
     padding-bottom:3rem;
 }
-#content {
-
-}
 .footer-top {
-    background: #ccc;
+    background: #eee;
     height: 200px;
 }
 .footer-bottom {
     height: 40px;
+}
+.highlight-leaderboard {
+    /* margin-bottom: .8rem; */
 }
 .highlight-leaderboard,
 .highlight-rectangle {
@@ -27,6 +34,14 @@
     background: #eee;
 }
 .highlight-skyscraper {
-    height: 600px;
+    height: 615px;
     background: #eee;
+}
+.ruler {
+    margin: 0 -2rem;
+    line-height: 1rem;
+    background: linear-gradient(135deg, #425fff 0, #f8549e 60%, #fe6652 100%);
+}
+.engagement {
+    background: #f7f8f9;
 }
