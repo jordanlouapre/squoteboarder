@@ -1,19 +1,29 @@
 .page-wrapper {
-    padding: 0 2rem;
+    /* padding: 0 2rem; */
 }
 #pre-header {
-    margin: 0 -2rem;
-    border-bottom: 1px solid #dadee4;
+    /* margin: 0 -2rem; */
+    /* border-bottom: 1px solid #333; */
 }
 #pre-header .langswitcher {
     text-align: right;
 }
 #header {
+    /* margin: 0 -2rem; */
     padding-top:6rem;
-    padding-bottom:3rem;
+    padding-bottom:6rem;
+}
+.home #header {
+    padding-bottom:inherit;
 }
 .navbar-logo {
     vertical-align: middle;
+}
+#pre-header, #header, .hero-home {
+    background:#AEDDE5; /* #FFD074 #F7E5BD #FBFDF2 #EBECE7 #332F29 #F9FADD #F2F8EA #AEDDE5 #E3E7B1 #ECEFA9 #F4EDF6 #D8E2EC #EDF9FF #E1FAFC #FFE7C1 #EBE1E2 #EBECE7 */
+}
+#pre-header {
+    background:#AEDDE5; /* AEDDE5 F4EDF6 */
 }
 #content {
     padding-bottom:3rem;
@@ -24,6 +34,15 @@
 }
 .footer-bottom {
     height: 40px;
+}
+.hero-home {
+    /* margin: 0 -2rem; */
+    color: #000;
+}
+.hero h1 {
+    font-weight: bolder;
+    font-size: 4rem;
+    word-spacing: 1.525rem;
 }
 .highlight-leaderboard {
     /* margin-bottom: .8rem; */
@@ -38,10 +57,15 @@
     background: #eee;
 }
 .ruler {
-    margin: 0 -2rem;
+    /* margin: 0 -2rem; */
     line-height: 1rem;
-    background: linear-gradient(135deg, #425fff 0, #f8549e 60%, #fe6652 100%);
+    /* background: linear-gradient(135deg, #425fff 0, #f8549e 60%, #fe6652 100%); */
 }
 .engagement {
     background: #f7f8f9;
+}
+.blogroll-sidebar {
+    position: -webkit-sticky !important;
+    position: sticky;
+    top: 0;
 }

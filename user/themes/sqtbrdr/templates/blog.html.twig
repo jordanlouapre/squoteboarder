@@ -1,27 +1,73 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
+<div class="container grid-xl">
+    <div class="columns">
+        <div class="column col-4"></div>
 
-{% set collection = page.collection() %}
+        <section class="blogroll column col-4">
 
-{% for child in collection %}
-    {% include 'partials/blog-list-item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
-{% endfor %}
-{# Render the pagination list #}
-{% if config.plugins.pagination.enabled and collection.params.pagination %}
-    {% include 'partials/blog/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
-{% endif %}
-<p>Sidebar</p>
-<hr>
-{% if page.route == '/quotes' %}
-    <p>Tags : {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/quotes', taxonomy: 'tag', children_only: true} %}</p>
-    <p>Catégories : {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/quotes', taxonomy: 'category', children_only: true} %}</p>
-{% elseif page.route == '/blog' %}
-    <p>Tags : {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/blog', taxonomy: 'tag', children_only: true} %}</p>
-    <p>Catégories : {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/blog', taxonomy: 'category', children_only: true} %}</p>
-{% endif %}
-<hr>
-{% include 'partials/blog/archives.html.twig' with {'base_url':page.url} %}
+            {% set collection = page.collection() %}
+
+            {% if page.route == '/quotes' %}
+                {% for child in collection %}
+                    {% include 'partials/blog-list-quote-item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
+                {% endfor %}
+            {% elseif page.route == '/blog' %}
+                {% for child in collection %}
+                    {% include 'partials/blog-list-post-item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
+                {% endfor %}
+            {% endif %}
+
+            {# Render the pagination list #}
+            {% if config.plugins.pagination.enabled and collection.params.pagination %}
+                <div class="text-center">
+                    {% include 'partials/blog/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
+                </div>
+            {% endif %}
+        </section>
+
+        <aside class="blogroll-sidebar column col-2">
+            <div class="accordion">
+                <input type="checkbox" id="accordion-1" name="accordion-checkbox" hidden>
+                <label class="accordion-header text-bold" for="accordion-1">
+                    Tags
+                </label>
+                <div class="accordion-body">
+                    {% if page.route == '/quotes' %}
+                        {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/quotes', taxonomy: 'tag', children_only: true} %}
+                    {% elseif page.route == '/blog' %}
+                        {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/blog', taxonomy: 'tag', children_only: true} %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="accordion">
+                <input type="checkbox" id="accordion-2" name="accordion-checkbox" hidden>
+                <label class="accordion-header text-bold" for="accordion-2">
+                    Catégories
+                </label>
+                <div class="accordion-body">
+                    {% if page.route == '/quotes' %}
+                        {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/quotes', taxonomy: 'category', children_only: true} %}
+                    {% elseif page.route == '/blog' %}
+                        {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/blog', taxonomy: 'category', children_only: true} %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="accordion">
+                <input type="checkbox" id="accordion-3" name="accordion-checkbox" hidden>
+                <label class="accordion-header text-bold" for="accordion-3">
+                    Archives
+                </label>
+                <div class="accordion-body">
+                    {% include 'partials/blog/archives.html.twig' with {'base_url':page.url} %}
+                </div>
+            </div>
+        </aside>
+
+        <div class="column col-2"></div>
+    </div>
+</div>
 
 {% endblock %}
 

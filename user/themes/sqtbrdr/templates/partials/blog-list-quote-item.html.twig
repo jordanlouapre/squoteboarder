@@ -1,0 +1,15 @@
+<div class="card mt-2">
+    <div class="card-image">
+        {{ media_directory(site.images_dir)[page.header.featured.featured_image|first.name].cropResize(200,200).html('My title', 'Some ALT text', 'myclass') }}
+    </div>
+    <div class="card-header">
+        <div class="card-title h5"><a href="{{ page.url }}">{{ page.title }}</a></div>
+        <div class="card-subtitle text-gray">Quis pharetra dolor condimentum non</div>
+    </div>
+    <div class="card-body">
+        {{ page.summary|raw }}
+    </div>
+    <div class="card-footer">
+        {% include 'partials/blog/taxonomy.html.twig' %}
+    </div>
+</div>

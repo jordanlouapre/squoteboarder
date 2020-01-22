@@ -62,11 +62,11 @@
                         </a>
                     </section>
                 {% endblock %}
-                {% block header_search %}
+                {# {% block header_search %}
                     <section class="navbar-center">
                         {% include 'partials/search/simplesearch_searchbox.html.twig' %}
                     </section>
-                {% endblock %}
+                {% endblock %} #}
                 {% block header_navigation %}
                     <section class="navbar-section">
                         {% include 'partials/navigation.html.twig' %}
@@ -82,7 +82,9 @@
         {% if page.home == false %}
             {% block breadcrumbs %}
             <div class="page-utils">
-                {% include 'partials/breadcrumbs.html.twig' %}
+                <div class="container grid-xl">
+                    {% include 'partials/breadcrumbs.html.twig' %}
+                </div>
             </div>
             {% endblock %}
         {% endif %}
