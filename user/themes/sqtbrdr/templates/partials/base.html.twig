@@ -37,83 +37,125 @@
 </head>
 <body id="top" class="{{ page.header.body_classes }}">
 
-<div class="page-wrapper">
-{% block pre_header %}
-    <div id="pre-header">
-        <div class="container grid-xl clearfix">
-            <nav class="navbar float-right">
-                {% block pre_header_navigation %}
-                    <section class="navbar-section">
-                        {% include 'partials/langswitcher.html.twig' %}
-                    </section>
-                {% endblock %}
-            </nav>
-        </div>
-    </div>
-{% endblock %}
-{% block header %}
-    <header id="header">
-        <div class="container grid-xl">
-            <nav class="navbar">
+<div id="page-wrapper" class="container">
+    <div class="columns">
+
+    {% block page_header %}
+        <header id="page-header" class="column col-3">
+
+            {% block header_navbar %}
+            <nav class="header-navbar">
+
                 {% block header_brand %}
-                    <section class="navbar-section">
-                        <a href="{{ home_url }}" title="{{ config.site.title }}" class="navbar-brand mr-2">
-                            <img src="{{ url("theme://images/logo.svg") }}" alt="" class="navbar-logo" />
+                    <section class="header-brand">
+                        <a href="{{ home_url }}" title="{{ config.site.title }}">
+                            <img src="{{ url("theme://images/logo.svg") }}" alt="" class="img-responsive brand-logo" style="" />
                         </a>
+                        <span class="brand-claim">&mdash; they ride then they talk</span>
                     </section>
                 {% endblock %}
-                {# {% block header_search %}
-                    <section class="navbar-center">
-                        {% include 'partials/search/simplesearch_searchbox.html.twig' %}
-                    </section>
-                {% endblock %} #}
-                {% block header_navigation %}
-                    <section class="navbar-section">
+
+                {% block header_menu %}
+                    <section class="header-menu">
                         {% include 'partials/navigation.html.twig' %}
                     </section>
                 {% endblock %}
+
+                {% block header_bottom %}
+                    <section class="header-bottom">
+
+                    </section>
+                {% endblock %}
+
             </nav>
-        </div>
-    </header>
-{% endblock %}
-
-{% block body %}
-    <div id="content">
-        {% if page.home == false %}
-            {% block breadcrumbs %}
-            <div class="page-utils">
-                <div class="container grid-xl">
-                    {% include 'partials/breadcrumbs.html.twig' %}
-                </div>
-            </div>
             {% endblock %}
-        {% endif %}
-        {% block content %}{% endblock %}
-    </div>
-{% endblock %}
 
-{% block footer %}
-    <footer id="footer">
-        {% block footer_top %}
-            <section class="footer-top">
-                <div class="container grid-xl">
-                    {% include 'partials/footer-top.html.twig' %}
+        </header>
+    {% endblock %}
+
+    {% block page_content %}
+        <div id="page-content" class="column col-6">
+
+            {% block content_utils %}
+                <div class="content-utils container">
+
+                {% if page.home == false %}
+                    {% block breadcrumbs %}
+                        {% include 'partials/breadcrumbs.html.twig' %}
+                    {% endblock %}
+                {% endif %}
+
                 </div>
-            </section>
+            {% endblock %}
+
+            {% block content %}{% endblock %}
+
+            {% block footer %}
+                <footer id="footer" class="container">
+
+                    {% block footer_top %}
+                        <section class="footer-top">
+                            <div class="container">
+                                {% include 'partials/footer-top.html.twig' %}
+                            </div>
+                        </section>
+                    {% endblock %}
+
+                    {% block footer_bottom %}
+                        <section class="footer-bottom">
+                            <div class="container">
+                                {% include 'partials/footer-bottom.html.twig' %}
+                            </div>
+                        </section>
+                    {% endblock %}
+
+                </footer>
+            {% endblock %}
+        </div>
+    {% endblock %}
+
+    {% block page_sidebar %}
+        <div id="page-sidebar" class="column col-3">
+
+        {% block page_utils %}
+            <div id="page-utils">
+                <nav class="navbar">
+
+                    {% block page_utils_navigation %}
+                        <section class="navbar-section">
+
+                            {# {% include 'partials/feeds.html.twig' %} #}
+
+                            {% include 'partials/langswitcher.html.twig' %}
+
+                        </section>
+                    {% endblock %}
+
+                </nav>
+            </div>
         {% endblock %}
-        {% block footer_bottom %}
-            <section class="footer-bottom">
-                <div class="container grid-xl">
-                    {% include 'partials/footer-bottom.html.twig' %}
-                </div>
-            </section>
-        {% endblock %}
-    </footer>
-{% endblock %}
+
+        {# {% block page_ads %}
+            <div id="page-ads">
+
+                {% block page_ads_placeholder %}
+                    <section class="page-ads-skyscraper">
+
+                        <img src="https://via.placeholder.com/300x600?text=300x600+Half+Page+Ad" class="img-responsive" />
+                    </section>
+                {% endblock %}
+
+            </div>
+        {% endblock %} #}
+
+        </div>
+    {% endblock %}
+
+    </div>
+</div>
 
 {% block bottom %}
     {{ assets.js('bottom')|raw }}
 {% endblock %}
-</div>
 </body>
 </html>
