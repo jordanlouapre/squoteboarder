@@ -1,10 +1,12 @@
 {% set taxlist = children_only is defined ? taxonomylist.getChildPagesTags() : taxonomylist.get() %}
 
 {% if taxlist %}
-<div class="tags">
     {% for tax,value in taxlist[taxonomy] %}
         {% set active = uri.param(taxonomy) == tax? 'active' : '' %}
-        <span class="label label-rounded"><a class="{{ active }}" href="{{ base_url }}/{{ taxonomy }}{{ config.system.param_sep }}{{ tax }}">{{ tax }}</a></span>
+        {% if taxonomy == 'tag' %}
+            <span class="label"><a class="{{ active }}" href="{{ base_url }}/{{ taxonomy }}{{ config.system.param_sep }}{{ tax }}">{{ tax }}</a></span>
+        {% elseif taxonomy == 'category' %}
+            <li class="menu-item"><a class="{{ active }}" href="{{ base_url }}/{{ taxonomy }}{{ config.system.param_sep }}{{ tax }}">{{ tax }}</a></li>
+        {% endif %}
     {% endfor %}
-</div>
 {% endif %}

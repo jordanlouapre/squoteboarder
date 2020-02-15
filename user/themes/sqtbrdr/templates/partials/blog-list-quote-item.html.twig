@@ -1,15 +1,68 @@
-<div class="card mt-2">
-    <div class="card-image">
-        {{ media_directory(site.images_dir)[page.header.featured.featured_image|first.name].cropResize(200,200).html('My title', 'Some ALT text', 'myclass') }}
-    </div>
-    <div class="card-header">
-        <div class="card-title h5"><a href="{{ page.url }}">{{ page.title }}</a></div>
-        <div class="card-subtitle text-gray">Quis pharetra dolor condimentum non</div>
-    </div>
+<article class="card card-quote mt-2">
+
     <div class="card-body">
-        {{ page.summary|raw }}
+
+        <div class="card-header">
+
+            <span class="quote-date">
+                {% if page.header.quote.source_media_issue_date %}
+                    {% if langswitcher.current == 'en' %}
+                        {{ page.header.quote.source_media_issue_date|date("m/d/Y") }}
+                    {% else %}
+                        {{ page.header.quote.source_media_issue_date|date("d/m/Y") }}
+                    {% endif %}
+                {% else %}
+                    {{ 'MONTHS_OF_THE_YEAR_SHORT'|ta(page.header.quote.source_media_issue|date('n') - 1) }}. {{ header.quote.source_media_issue|date('Y') }}
+                {% endif %}
+            </span>
+
+            {% if page.taxonomy.source_media %}
+            <span class="quote-sourcemedia">
+                {% for source_media in page.taxonomy.source_media %}
+                    <a class="label label-rounded p-sourcemedia" href="{{ blog.url|rtrim('/') }}/source_media{{ config.system.param_sep }}{{ source_media }}">
+                        {{ site.source_medias[source_media]|split('|')|slice(0, 1)|join }}
+                        {% if page.header.quote.source_media_issue_number %}
+                            #{{ page.header.quote.source_media_issue_number }}
+                        {% endif %}
+                    </a>
+                {% endfor %}
+            </span>
+            {% endif %}
+        </div>
+
+        <div class="card-content">
+
+            <div class="quote-title">
+                <h2><a href="{{ page.url }}">&ldquo;&nbsp;{{ page.title }}&nbsp;&rdquo;</a></h2>
+            </div>
+
+            <div class="quote-author">
+
+                {% if page.taxonomy.author %}
+                &mdash;
+                <div class="chip">
+                    {% for author in page.taxonomy.author %}
+                        {# <figure class="avatar avatar-sm" data-initial="{{ site.skateboarders[author]|split('|')|slice(1, 1)|join[:1] }}{{ site.skateboarders[author]|split('|')|slice(0, 1)|join[:1] }}"></figure> #}
+                        <img class="avatar avatar-sm" src="https://picturepan2.github.io/spectre/img/avatar-1.png" alt="Steve Rogers">
+                        <a href="{{ blog.url|rtrim('/') }}/author{{ config.system.param_sep }}{{ author }}">
+                            {{ site.skateboarders[author]|split('|')|slice(1, 1)|join }} {{ site.skateboarders[author]|split('|')|slice(0, 1)|join }}
+                        </a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% if page.header.quote.about %}
+                <span class="quote-about">
+                    about {{ page.header.quote.about }}
+                </span>
+                {% endif %}
+            </div>
+        </div>
+
     </div>
+
     <div class="card-footer">
         {% include 'partials/blog/taxonomy.html.twig' %}
     </div>
-</div>
+
+</article>

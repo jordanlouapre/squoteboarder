@@ -2,7 +2,17 @@
 
 {% block content %}
 
-{% block item %}
-    {% include 'partials/blog-item.html.twig' %}
-{% endblock %}
+    <section class="blogpost column col-lg-12 col-9">
+
+        {% block item %}
+            {% include 'partials/blog-item.html.twig' %}
+        {% endblock %}
+
+    </section>
+
+    <aside class="blogpost-sidebar column col-lg-12 col-3">
+
+        Sed porta nisi non erat rhoncus, nec porta sapien lacinia. Cras scelerisque massa eu mi molestie placerat. Ut et nunc vitae lorem aliquam maximus a ut mi. Vestibulum elementum maximus velit. Aliquam maximus accumsan malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean consectetur purus sapien, non efficitur felis ultrices nec. Suspendisse faucibus nisi rhoncus arcu euismod, id elementum ex bibendum. Etiam quis aliquam mi.
+    </aside>
+
 {% endblock %}

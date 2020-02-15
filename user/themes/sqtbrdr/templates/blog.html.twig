@@ -1,73 +1,98 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-<div class="container grid-xl">
-    <div class="columns">
-        <div class="column col-4"></div>
+{#
+    <section class="hero hero-sm column col-12">
+        <div class="hero-body">
+            <h1>{{ page.title }}</h1>
+        </div>
+    </section>
 
-        <section class="blogroll column col-4">
+    <section class="content-utils column col-12">
+        {% block breadcrumbs %}
+            {% include 'partials/breadcrumbs.html.twig' %}
+        {% endblock %}
+    </section> #}
 
-            {% set collection = page.collection() %}
+    <aside class="blogroll-sidebar column col-lg-12 col-2">
 
-            {% if page.route == '/quotes' %}
-                {% for child in collection %}
-                    {% include 'partials/blog-list-quote-item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
-                {% endfor %}
-            {% elseif page.route == '/blog' %}
-                {% for child in collection %}
-                    {% include 'partials/blog-list-post-item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
-                {% endfor %}
-            {% endif %}
+        <div class="sidebar-widget widget-list">
+            <ul class="menu">
+                <li class="divider" data-content="TAGS">
+                </li>
+                <li class="menu-item">
+                {% if page.route == '/quotes' %}
+                    {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/quotes', taxonomy: 'tag', children_only: true} %}
+                {% elseif page.route == '/blog' %}
+                    {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/blog', taxonomy: 'tag', children_only: true} %}
+                {% endif %}
+                </li>
+            </ul>
+        </div>
 
-            {# Render the pagination list #}
-            {% if config.plugins.pagination.enabled and collection.params.pagination %}
-                <div class="text-center">
-                    {% include 'partials/blog/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
-                </div>
-            {% endif %}
-        </section>
+        <div class="sidebar-widget widget-list">
+            <ul class="menu">
+                <li class="divider" data-content="CATEGORIES">
+                {% if page.route == '/quotes' %}
+                    {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/quotes', taxonomy: 'category', children_only: true} %}
+                {% elseif page.route == '/blog' %}
+                    {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/blog', taxonomy: 'category', children_only: true} %}
+                {% endif %}
+            </ul>
+        </div>
 
-        <aside class="blogroll-sidebar column col-2">
-            <div class="accordion">
-                <input type="checkbox" id="accordion-1" name="accordion-checkbox" hidden>
-                <label class="accordion-header text-bold" for="accordion-1">
-                    Tags
-                </label>
-                <div class="accordion-body">
-                    {% if page.route == '/quotes' %}
-                        {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/quotes', taxonomy: 'tag', children_only: true} %}
-                    {% elseif page.route == '/blog' %}
-                        {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/blog', taxonomy: 'tag', children_only: true} %}
-                    {% endif %}
-                </div>
+        <div class="sidebar-widget widget-list">
+            <ul class="menu">
+                <li class="divider" data-content="ARCHIVES">
+                {% include 'partials/blog/archives.html.twig' with {'base_url':page.url} %}
+
+            </ul>
+        </div>
+    </aside>
+    <section class="blogroll column col-lg-12 col-1">
+    </section>
+    <section class="blogroll column col-lg-12 col-6">
+
+        {# {% set collection = page.collection() %}
+
+        {% if page.route == '/quotes' %}
+            {% for child in collection %}
+                {% include 'partials/blog-list-quote-item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
+            {% endfor %}
+        {% elseif page.route == '/blog' %}
+            {% for child in collection %}
+                {% include 'partials/blog-list-post-item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
+            {% endfor %}
+        {% endif %}
+
+        {% if config.plugins.pagination.enabled and collection.params.pagination %}
+            <div class="text-center">
+                {% include 'partials/blog/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
             </div>
-            <div class="accordion">
-                <input type="checkbox" id="accordion-2" name="accordion-checkbox" hidden>
-                <label class="accordion-header text-bold" for="accordion-2">
-                    Catégories
-                </label>
-                <div class="accordion-body">
-                    {% if page.route == '/quotes' %}
-                        {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/quotes', taxonomy: 'category', children_only: true} %}
-                    {% elseif page.route == '/blog' %}
-                        {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/blog', taxonomy: 'category', children_only: true} %}
-                    {% endif %}
-                </div>
-            </div>
-            <div class="accordion">
-                <input type="checkbox" id="accordion-3" name="accordion-checkbox" hidden>
-                <label class="accordion-header text-bold" for="accordion-3">
-                    Archives
-                </label>
-                <div class="accordion-body">
-                    {% include 'partials/blog/archives.html.twig' with {'base_url':page.url} %}
-                </div>
-            </div>
-        </aside>
+        {% endif %} #}
 
-        <div class="column col-2"></div>
-    </div>
-</div>
+       <b>Nunc hendrerit</b> gravida consequat. Nam venenatis, metus eu tincidunt scelerisque, nulla ligula euismod ante, non pretium lectus ante vel dolor. Suspendisse sollicitudin bibendum velit. Maecenas nec eros ac leo faucibus varius. Duis porttitor non metus eget ultricies. Etiam sit amet lorem viverra, elementum lectus eget, iaculis lectus. Phasellus dictum a tortor vel condimentum. Vestibulum arcu ligula, suscipit quis enim sed, dictum volutpat mauris. Maecenas velit lectus, mattis ut sapien vitae, placerat ultricies lacus. Pellentesque pellentesque viverra faucibus. Aliquam vitae vehicula purus, id dignissim tellus. In vitae sem eu libero rutrum fermentum eget eu ex. Nunc non dolor eros.
+
+    </section>
+
+    <aside class="blogroll-sidebar column col-lg-12 col-3">
+
+        <div class="sidebar-widget">
+            <h3>Nnisi non erat rhoncus</h3>
+            <b>Sed porta</b> nisi non erat rhoncus, nec porta sapien lacinia. Cras scelerisque massa eu mi molestie placerat.
+        </div>
+
+        <div class="sidebar-widget widget-subtle">
+            <h3>Vestibulum elementum maximus</h3>
+            Ut et nunc vitae lorem aliquam maximus a ut mi. Vestibulum elementum maximus velit. Aliquam maximus accumsan malesuada.
+        </div>
+
+        <div class="sidebar-widget">
+            <h3>Magnis dis parturient montes</h3>
+            Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean consectetur purus sapien, non efficitur felis ultrices nec.
+        </div>
+
+    </aside>
 
 {% endblock %}
 

@@ -1,20 +1,17 @@
-{% if page.taxonomy.tag %}
-<span class="tags">
-    {% for tag in page.taxonomy.tag %}
-    <a class="label label-rounded {{ label_style ?: 'label-secondary' }} p-category" href="{{ blog.url|rtrim('/') }}/tag{{ config.system.param_sep }}{{ tag }}#body-wrapper">{{ tag }}</a>
-    {% endfor %}
-</span>
-{% endif %}
 {% if page.taxonomy.category %}
+<span class="tax-icon">&angrt;</span>
 <span class="tags">
     {% for category in page.taxonomy.category %}
-    <a class="label label-rounded {{ label_style ?: 'label-secondary' }} p-category" href="{{ blog.url|rtrim('/') }}/category{{ config.system.param_sep }}{{ category }}#body-wrapper">{{ category }}</a>
+    <a class="label label-rounded {{ label_style ?: 'label-secondary' }} p-category" href="{{ blog.url|rtrim('/') }}/category{{ config.system.param_sep }}{{ category }}">{{ category }}</a>
     {% endfor %}
 </span>
 {% endif %}
-{% if page.taxonomy.author %}
-    {% for author in page.taxonomy.author %}
-    <p>From: <a class="label label-rounded {{ label_style ?: 'label-secondary' }} p-category" href="{{ blog.url|rtrim('/') }}/author{{ config.system.param_sep }}{{ author }}#body-wrapper">{{ site.skateboarders[author]|split('|')|slice(0, 1)|join }}</a></p>
-    {% endfor %}
-{% endif %}
 
+{% if page.taxonomy.tag %}
+<span class="tax-icon">&num;</span>
+<span class="tags">
+    {% for tag in page.taxonomy.tag %}
+    <a class="label label-rounded {{ label_style ?: 'label-secondary' }} p-tag" href="{{ blog.url|rtrim('/') }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a>
+    {% endfor %}
+</span>
+{% endif %}

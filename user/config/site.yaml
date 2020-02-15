@@ -19,5 +19,8 @@ summary:
 blog:
   route: /blog
 skateboarders:
-  ekoston: 'Eric Koston|froston'
+  ekoston: Koston|Eric|froston
+  sberra: Berra|Steve|sberra
 images_dir: user/pages/images
+source_medias:
+  thrashermagazine: 'Thrasher Magazine|https://www.thrashermagazine.com/'

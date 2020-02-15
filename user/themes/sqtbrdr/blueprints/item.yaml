@@ -20,6 +20,11 @@ form:
               type: section
               title: Quote
               fields:
+                header.quote.about:
+                  type: text
+                  classes: fancy
+                  label: PLUGIN_ADMIN.ITEM_OPTIONS_QUOTE_ABOUT
+                  help: PLUGIN_ADMIN.ITEM_OPTIONS_QUOTE_ABOUT_HELP
                 header.quote.source_media_type:
                   type: select
                   size: long

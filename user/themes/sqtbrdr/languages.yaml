@@ -1,4 +1,6 @@
 en:
+  MONTHS_OF_THE_YEAR: [January, February, March, April, May, June, July, August, September, October, November, December]
+  MONTHS_OF_THE_YEAR_SHORT: [Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
   PLUGIN_ADMIN:
     CONFIG_SITE_SKATEBOARDERS: "Skateboarders"
     CONFIG_SITE_SKATEBOARDERS_HELP: "Skateboard riders metadatas, ex. 'name|instagram'"
@@ -15,6 +17,8 @@ en:
       ITEM:
         CONTINUE_READING: Continue reading...
 fr:
+  MONTHS_OF_THE_YEAR: [Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
+  MONTHS_OF_THE_YEAR_SHORT: [Janv, Févr, Mars, Avr, Mai, Juin, Juill, Août, Sept, Oct, Nov, Déc]
   PLUGIN_ADMIN:
     CONFIG_SITE_SKATEBOARDERS: "Skateboarders"
     CONFIG_SITE_SKATEBOARDERS_HELP: "Metadatas riders skateboard, ex. 'name|instagram'"

@@ -2,6 +2,11 @@
     <div class="card-title">
         {{ page.title }}
     </div>
+
+    <div class="card-image">
+        {{ media_directory(site.images_dir)[page.header.featured.featured_image|first.name].cropResize(200,200).html('My title', 'Some ALT text', 'myclass') }}
+    </div>
+
     <div class="e-content">
         {{ page.content|raw }}
         <p>{% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/quotes', taxonomy: 'tag', children_only: true} %}</p>

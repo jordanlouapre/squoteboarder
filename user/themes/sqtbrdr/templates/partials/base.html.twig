@@ -23,7 +23,8 @@
     {% do assets.addCss('https://unpkg.com/spectre.css/dist/spectre.min.css', 100) %}
     {% do assets.addCss('https://unpkg.com/spectre.css/dist/spectre-exp.min.css', 99) %}
     {% do assets.addCss('https://unpkg.com/spectre.css/dist/spectre-icons.min.css', 98) %}
-    {% do assets.addCss('theme://css/custom.css', 97) %}
+    {% do assets.addCss('https://fonts.googleapis.com/css?family=DM+Serif+Text', 97) %}
+    {% do assets.addCss('theme://css/custom.css', 96) %}
 {% endblock %}
 
 {# {% block javascripts %}
@@ -38,77 +39,101 @@
 <body id="top" class="{{ page.header.body_classes }}">
 
 <div class="page-wrapper">
-{% block pre_header %}
-    <div id="pre-header">
-        <div class="container grid-xl clearfix">
-            <nav class="navbar float-right">
-                {% block pre_header_navigation %}
-                    <section class="navbar-section">
-                        {% include 'partials/langswitcher.html.twig' %}
-                    </section>
-                {% endblock %}
-            </nav>
-        </div>
-    </div>
-{% endblock %}
+
 {% block header %}
     <header id="header">
-        <div class="container grid-xl">
+        <div class="container grid-lg">
+
+            {% block header_navigation %}
             <nav class="navbar">
+
                 {% block header_brand %}
-                    <section class="navbar-section">
-                        <a href="{{ home_url }}" title="{{ config.site.title }}" class="navbar-brand mr-2">
-                            <img src="{{ url("theme://images/logo.svg") }}" alt="" class="navbar-logo" />
-                        </a>
-                    </section>
+                <section class="navbar-section">
+                    <a href="{{ home_url }}" title="{{ config.site.title }}" class="navbar-brand">
+                        <img src="{{ url("theme://images/logo.svg") }}" alt="" class="navbar-logo" />
+                    </a>
+                    <a class="off-canvas-toggle btn btn-primary btn-action show-lg" href="#mobile-menu">
+                        <i class="icon icon-menu"></i>
+                    </a>
+                </section>
                 {% endblock %}
-                {# {% block header_search %}
-                    <section class="navbar-center">
-                        {% include 'partials/search/simplesearch_searchbox.html.twig' %}
-                    </section>
-                {% endblock %} #}
-                {% block header_navigation %}
-                    <section class="navbar-section">
+
+                {% block header_search %}
+                <section class="navbar-center hide-lg">
+                    {% include 'partials/search/simplesearch_searchbox.html.twig' %}
+                </section>
+                {% endblock %}
+
+                {% block header_menu %}
+                <section class="navbar-section hide-lg">
+
+                    <div class="site-menu">
                         {% include 'partials/navigation.html.twig' %}
-                    </section>
+                    </div>
+
+                    <div class="utils-menu">
+                        {% include 'partials/langswitcher.html.twig' %}
+                    </div>
+                </section>
                 {% endblock %}
+
             </nav>
+            {% endblock %}
+
         </div>
     </header>
 {% endblock %}
 
 {% block body %}
-    <div id="content">
-        {% if page.home == false %}
-            {% block breadcrumbs %}
-            <div class="page-utils">
-                <div class="container grid-xl">
-                    {% include 'partials/breadcrumbs.html.twig' %}
-                </div>
-            </div>
-            {% endblock %}
-        {% endif %}
-        {% block content %}{% endblock %}
+    <div id="content" class="container grid-lg">
+        <div class="columns">
+
+            {% block content %}{% endblock %}
+
+        </div>
     </div>
 {% endblock %}
 
 {% block footer %}
-    <footer id="footer">
-        {% block footer_top %}
-            <section class="footer-top">
-                <div class="container grid-xl">
-                    {% include 'partials/footer-top.html.twig' %}
-                </div>
+    <footer id="footer" class="container grid-lg">
+        <div class="columns">
+
+            {% block footer_top %}
+            <section class="footer-top column col-12">
+                {% include 'partials/footer-top.html.twig' %}
             </section>
-        {% endblock %}
-        {% block footer_bottom %}
-            <section class="footer-bottom">
-                <div class="container grid-xl">
-                    {% include 'partials/footer-bottom.html.twig' %}
-                </div>
+            {% endblock %}
+
+            {% block footer_bottom %}
+            <section class="footer-bottom column col-12">
+                {% include 'partials/footer-bottom.html.twig' %}
             </section>
-        {% endblock %}
+            {% endblock %}
+
+        </div>
     </footer>
+{% endblock %}
+
+{% block off_canvas %}
+    <div class="off-canvas">
+
+        <div id="mobile-menu" class="off-canvas-sidebar">
+
+            <div class="mobile-menu-section search-menu">
+                {% include 'partials/search/simplesearch_searchbox.html.twig' %}
+            </div>
+
+            <div class="mobile-menu-section site-menu">
+                {% include 'partials/navigation.html.twig' %}
+            </div>
+
+            <div class="mobile-menu-section utils-menu">
+                {% include 'partials/langswitcher.html.twig' %}
+            </div>
+        </div>
+
+        <a class="off-canvas-overlay" href="#close"></a>
+    </div>
 {% endblock %}
 
 {% block bottom %}
