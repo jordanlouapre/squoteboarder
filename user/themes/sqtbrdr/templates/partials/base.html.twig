@@ -40,40 +40,70 @@
 
 <div class="page-wrapper">
 
+{% block preheader %}
+    <div id="preheader" class="hide-lg">
+        <div class="container grid-xl">
+
+            {% block preheader_navigation %}
+            <nav class="navbar">
+
+                {% block preheader_push %}
+                <section class="navbar-section">
+
+                    <div class="push-message">
+                        &mdash; The website that has skaters quoting.
+                    </div>
+                </section>
+                {% endblock %}
+
+                {% block preheader_menu %}
+                <section class="navbar-section">
+
+                    <div class="utils-menu">
+                        {% include 'partials/social-networks.html.twig' %}
+                        {% include 'partials/langswitcher.html.twig' %}
+                    </div>
+                </section>
+                {% endblock %}
+
+            </nav>
+            {% endblock %}
+
+        </div>
+    </div>
+{% endblock %}
+
 {% block header %}
     <header id="header">
-        <div class="container grid-lg">
+        <div class="container grid-xl">
 
             {% block header_navigation %}
             <nav class="navbar">
 
-                {% block header_brand %}
+                {% block header_menu %}
                 <section class="navbar-section">
-                    <a href="{{ home_url }}" title="{{ config.site.title }}" class="navbar-brand">
-                        <img src="{{ url("theme://images/logo.svg") }}" alt="" class="navbar-logo" />
-                    </a>
+                    <div class="site-menu">
+                        {% include 'partials/navigation.html.twig' %}
+                    </div>
                     <a class="off-canvas-toggle btn btn-primary btn-action show-lg" href="#mobile-menu">
                         <i class="icon icon-menu"></i>
                     </a>
                 </section>
                 {% endblock %}
 
-                {% block header_search %}
+                {% block header_brand %}
                 <section class="navbar-center hide-lg">
-                    {% include 'partials/search/simplesearch_searchbox.html.twig' %}
+                    <a href="{{ home_url }}" title="{{ config.site.title }}" class="navbar-brand">
+                        <img src="{{ url("theme://images/logo.svg") }}" alt="" class="navbar-logo" />
+                    </a>
                 </section>
                 {% endblock %}
 
-                {% block header_menu %}
+                {% block header_search %}
                 <section class="navbar-section hide-lg">
+                    {% include 'partials/search/simplesearch_searchbox.html.twig' %}
+                    <img src="https://via.placeholder.com/728x90?text=MainAdLeaderboard" class="" alt="">
 
-                    <div class="site-menu">
-                        {% include 'partials/navigation.html.twig' %}
-                    </div>
-
-                    <div class="utils-menu">
-                        {% include 'partials/langswitcher.html.twig' %}
-                    </div>
                 </section>
                 {% endblock %}
 
@@ -85,7 +115,7 @@
 {% endblock %}
 
 {% block body %}
-    <div id="content" class="container grid-lg">
+    <div id="content" class="container grid-xl">
         <div class="columns">
 
             {% block content %}{% endblock %}
@@ -95,7 +125,7 @@
 {% endblock %}
 
 {% block footer %}
-    <footer id="footer" class="container grid-lg">
+    <footer id="footer" class="container">
         <div class="columns">
 
             {% block footer_top %}
