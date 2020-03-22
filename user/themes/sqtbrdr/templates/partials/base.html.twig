@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% include 'partials/metadata.html.twig' %}
 
-    <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}" />
+    <link rel="icon" type="image/png" href="{{ url('theme://images/logo.svg') }}" />
     <link rel="canonical" href="{{ page.url(true, true) }}" />
     {% include 'partials/langswitcher.hreflang.html.twig' %}
 
@@ -27,9 +27,9 @@
     {% do assets.addCss('theme://css/custom.css', 96) %}
 {% endblock %}
 
-{# {% block javascripts %}
+{% block javascripts %}
     {% do assets.addJs('jquery', 100) %}
-{% endblock %} #}
+{% endblock %}
 
 {% block assets deferred %}
     {{ assets.css()|raw }}
@@ -51,7 +51,7 @@
                 <section class="navbar-section">
 
                     <div class="push-message">
-                        &mdash; The website that has skaters quoting.
+                        &ldquo; <sup>The</sup> website that has skaters quoting. &rdquo;
                     </div>
                 </section>
                 {% endblock %}
@@ -61,6 +61,7 @@
 
                     <div class="utils-menu">
                         {% include 'partials/social-networks.html.twig' %}
+                        &verbar;
                         {% include 'partials/langswitcher.html.twig' %}
                     </div>
                 </section>
@@ -74,36 +75,31 @@
 {% endblock %}
 
 {% block header %}
-    <header id="header">
-        <div class="container grid-xl">
+    <header id="header" class="header-main">
+        <div class="container grid-lg">
 
             {% block header_navigation %}
             <nav class="navbar">
 
-                {% block header_menu %}
-                <section class="navbar-section">
-                    <div class="site-menu">
-                        {% include 'partials/navigation.html.twig' %}
-                    </div>
-                    <a class="off-canvas-toggle btn btn-primary btn-action show-lg" href="#mobile-menu">
+                {% block header_brand %}
+                <section id="header-brand" class="navbar-section">
+                    <a href="{{ home_url }}" title="{{ config.site.title }}" class="navbar-brand">
+                        <img src="{{ url("theme://images/logo.svg") }}" alt="theSQUOTEBOARDER" class="navbar-logo" />
+                    </a>
+                    <a class="off-canvas-toggle btn btn-primary btn-action show-md" href="#mobile-menu">
                         <i class="icon icon-menu"></i>
                     </a>
                 </section>
                 {% endblock %}
 
-                {% block header_brand %}
-                <section class="navbar-center hide-lg">
-                    <a href="{{ home_url }}" title="{{ config.site.title }}" class="navbar-brand">
-                        <img src="{{ url("theme://images/logo.svg") }}" alt="" class="navbar-logo" />
-                    </a>
-                </section>
-                {% endblock %}
-
-                {% block header_search %}
-                <section class="navbar-section hide-lg">
-                    {% include 'partials/search/simplesearch_searchbox.html.twig' %}
-                    <img src="https://via.placeholder.com/728x90?text=MainAdLeaderboard" class="" alt="">
-
+                {% block header_menu %}
+                <section id="header-menu" class="navbar-section">
+                    <div class="site-menu hide-md">
+                        {% include 'partials/navigation.html.twig' %}
+                    </div>
+                    <div class="site-search hide-md">
+                        {% include 'partials/search/simplesearch_searchbox.html.twig' %}
+                    </div>
                 </section>
                 {% endblock %}
 
@@ -115,27 +111,23 @@
 {% endblock %}
 
 {% block body %}
-    <div id="content" class="container grid-xl">
-        <div class="columns">
-
-            {% block content %}{% endblock %}
-
-        </div>
+    <div id="content">
+        {% block content %}{% endblock %}
     </div>
 {% endblock %}
 
 {% block footer %}
-    <footer id="footer" class="container">
-        <div class="columns">
+    <footer id="footer">
+        <div class="container grid-xl">
 
             {% block footer_top %}
-            <section class="footer-top column col-12">
+            <section class="footer-top">
                 {% include 'partials/footer-top.html.twig' %}
             </section>
             {% endblock %}
 
             {% block footer_bottom %}
-            <section class="footer-bottom column col-12">
+            <section class="footer-bottom">
                 {% include 'partials/footer-bottom.html.twig' %}
             </section>
             {% endblock %}
@@ -169,6 +161,22 @@
 {% block bottom %}
     {{ assets.js('bottom')|raw }}
 {% endblock %}
+{# <script>
+
+
+$(function() {
+    var header = $("#header");
+    $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 500) {
+            header.removeClass("header-main").addClass("header-min");
+        } else {
+            header.removeClass("header-min");
+        }
+    });
+});
+</script> #}
 </div>
 </body>
 </html>

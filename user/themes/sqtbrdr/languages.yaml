@@ -12,6 +12,8 @@ en:
     CONFIG_SITE_SOURCE_MEDIAS_VALUE: "Source medias metadatas ex. 'title|site'"
     ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_TYPE: "Source media type"
     ITEM_OPTIONS_QUOTE_SOURCE_MEDIA_TYPE_HELP: "Determine the source media type"
+  PLUGIN_SIMPLESEARCH:
+    SEARCH_PLACEHOLDER: "Search quote, skater, post..."
   THEME_SQTBRDR:
     BLOG:
       ITEM:
