@@ -1,38 +1,73 @@
-<div class="columns">
-    <div class="column col-4">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis eget lorem vitae consequat. Nullam luctus eros risus, eu cursus elit consectetur at.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis eget lorem vitae consequat. Nullam luctus eros risus, eu cursus elit consectetur at.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis eget lorem vitae consequat. Nullam luctus eros risus, eu cursus elit consectetur at.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis eget lorem vitae consequat. Nullam luctus eros risus, eu cursus elit consectetur at.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis eget lorem vitae consequat. Nullam luctus eros risus, eu cursus elit consectetur at.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis eget lorem vitae consequat. Nullam luctus eros risus, eu cursus elit consectetur at.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis eget lorem vitae consequat. Nullam luctus eros risus, eu cursus elit consectetur at.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis eget lorem vitae consequat. Nullam luctus eros risus, eu cursus elit consectetur at.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis eget lorem vitae consequat. Nullam luctus eros risus, eu cursus elit consectetur at.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis eget lorem vitae consequat. Nullam luctus eros risus, eu cursus elit consectetur at.
+<div class="column col-sm-12 col-md-6 col-lg-6 col-6">
+
+    <div class="footer-top-section footer-branding">
+
+        <h4><sup>The</sup> website<br /> that has skaters<br /> quoting.</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pharetra viverra est. Donec turpis urna, ornare ut lorem nec, porttitor malesuada sapien. Integer vestibulum fermentum sagittis.</p>
     </div>
-    <div class="column col-4">
-        Nunc condimentum sed velit sit amet pulvinar. Duis ac sapien non ipsum pretium efficitur a a elit. Mauris consequat aliquam aliquam.
-        Nunc condimentum sed velit sit amet pulvinar. Duis ac sapien non ipsum pretium efficitur a a elit. Mauris consequat aliquam aliquam.
-        Nunc condimentum sed velit sit amet pulvinar. Duis ac sapien non ipsum pretium efficitur a a elit. Mauris consequat aliquam aliquam.
-        Nunc condimentum sed velit sit amet pulvinar. Duis ac sapien non ipsum pretium efficitur a a elit. Mauris consequat aliquam aliquam.
-        Nunc condimentum sed velit sit amet pulvinar. Duis ac sapien non ipsum pretium efficitur a a elit. Mauris consequat aliquam aliquam.
-        Nunc condimentum sed velit sit amet pulvinar. Duis ac sapien non ipsum pretium efficitur a a elit. Mauris consequat aliquam aliquam.
-        Nunc condimentum sed velit sit amet pulvinar. Duis ac sapien non ipsum pretium efficitur a a elit. Mauris consequat aliquam aliquam.
-        Nunc condimentum sed velit sit amet pulvinar. Duis ac sapien non ipsum pretium efficitur a a elit. Mauris consequat aliquam aliquam.
-        Nunc condimentum sed velit sit amet pulvinar. Duis ac sapien non ipsum pretium efficitur a a elit. Mauris consequat aliquam aliquam.
-        Nunc condimentum sed velit sit amet pulvinar. Duis ac sapien non ipsum pretium efficitur a a elit. Mauris consequat aliquam aliquam.
+    {# <div class="footer-top-section footer-branding">
+
+        <h5>Proud member of<br />
+        <img src="{{ url("theme://images/logo-derue-white.svg") }}" alt="DERUE" class="network-logo" /> #SkateCultureHub</h5>
+    </div> #}
+</div>
+<div class="column col-sm-12 col-md-6 col-lg-6 col-6">
+    <div class="columns">
+        <div class="column col-md-4 col-3">
+
+            <div class="footer-top-section footer-menu">
+                <h5>Learn more</h5>
+                {% include 'partials/navigation.html.twig' %}
+            </div>
+        </div>
+        <div class="column col-md-4 col-3">
+
+            <div class="footer-top-section footer-menu">
+                <h5>Know more</h5>
+                {% include 'partials/navigation_secondary.html.twig' %}
+            </div>
+        </div>
+        <div class="column col-md-4 col-3">
+
+            <div class="footer-top-section footer-menu">
+                <h5>Do more</h5>
+                {% include 'partials/social-networks.html.twig' %}
+            </div>
+        </div>
+        <div class="column hide-md col-3">
+
+            <div class="footer-top-section footer-menu">
+                {% include 'partials/langswitcher.html.twig' with {'display_mode': 'select'} %}
+            </div>
+        </div>
+        {# <div class="column">
+
+            <div class="footer-top-section footer-newsletter">
+
+                <h6>Let's subscribe!</h6>
+                <div class="input-group mt-2">
+                    <input type="text" class="form-input" placeholder="First name">
+                    <input type="text" class="form-input" placeholder="Last name">
+                </div>
+                <div class="input-group mt-2">
+                    <input type="text" class="form-input" placeholder="Email">
+                    <button class="btn btn-primary input-group-btn">Let's do it now!</button>
+                </div>
+            </div>
+        </div> #}
     </div>
-    <div class="column col-4">
-        Proin sagittis est nibh, et sollicitudin velit hendrerit sit amet. Morbi eleifend laoreet sapien, dictum facilisis ex varius id. Aenean vitae sodales augue.
-        Proin sagittis est nibh, et sollicitudin velit hendrerit sit amet. Morbi eleifend laoreet sapien, dictum facilisis ex varius id. Aenean vitae sodales augue.
-        Proin sagittis est nibh, et sollicitudin velit hendrerit sit amet. Morbi eleifend laoreet sapien, dictum facilisis ex varius id. Aenean vitae sodales augue.
-        Proin sagittis est nibh, et sollicitudin velit hendrerit sit amet. Morbi eleifend laoreet sapien, dictum facilisis ex varius id. Aenean vitae sodales augue.
-        Proin sagittis est nibh, et sollicitudin velit hendrerit sit amet. Morbi eleifend laoreet sapien, dictum facilisis ex varius id. Aenean vitae sodales augue.
-        Proin sagittis est nibh, et sollicitudin velit hendrerit sit amet. Morbi eleifend laoreet sapien, dictum facilisis ex varius id. Aenean vitae sodales augue.
-        Proin sagittis est nibh, et sollicitudin velit hendrerit sit amet. Morbi eleifend laoreet sapien, dictum facilisis ex varius id. Aenean vitae sodales augue.
-        Proin sagittis est nibh, et sollicitudin velit hendrerit sit amet. Morbi eleifend laoreet sapien, dictum facilisis ex varius id. Aenean vitae sodales augue.
-        Proin sagittis est nibh, et sollicitudin velit hendrerit sit amet. Morbi eleifend laoreet sapien, dictum facilisis ex varius id. Aenean vitae sodales augue.
-        Proin sagittis est nibh, et sollicitudin velit hendrerit sit amet. Morbi eleifend laoreet sapien, dictum facilisis ex varius id. Aenean vitae sodales augue.
+</div>
+<div class="column">
+    <div class="columns">
+        <div class="column col-sm-12 col-md-6 col-lg-6 col-6">
+            <div class="footer-top-section footer-legal footer-credits">
+                <a href="/" class="btn btn-link">Copyright &copy;2020 <span class="logo-txt"><sup>the</sup>squoteboarder</span> - All rights reserved</a>
+            </div>
+        </div>
+        <div class="column col-sm-12 col-md-6 col-lg-6 col-6">
+            <div class="footer-top-section footer-legal">
+                {% include 'partials/navigation_footer.html.twig' %}
+            </div>
+        </div>
     </div>
 </div>

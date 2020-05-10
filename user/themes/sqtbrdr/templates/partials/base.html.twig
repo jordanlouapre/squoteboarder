@@ -23,12 +23,13 @@
     {% do assets.addCss('https://unpkg.com/spectre.css/dist/spectre.min.css', 100) %}
     {% do assets.addCss('https://unpkg.com/spectre.css/dist/spectre-exp.min.css', 99) %}
     {% do assets.addCss('https://unpkg.com/spectre.css/dist/spectre-icons.min.css', 98) %}
-    {% do assets.addCss('https://fonts.googleapis.com/css?family=DM+Serif+Text', 97) %}
+    {% do assets.addCss('https://fonts.googleapis.com/css?family=DM+Serif+Text&IBM+Plex+Mono:wght@400;500;600;700&display=swap', 97) %}
     {% do assets.addCss('theme://css/custom.css', 96) %}
 {% endblock %}
 
 {% block javascripts %}
     {% do assets.addJs('jquery', 100) %}
+    {% do assets.addJs('theme://js/site.js', {group:'bottom'}) %}
 {% endblock %}
 
 {% block assets deferred %}
@@ -40,50 +41,16 @@
 
 <div class="page-wrapper">
 
-{% block preheader %}
-    <div id="preheader" class="hide-lg">
-        <div class="container grid-xl">
-
-            {% block preheader_navigation %}
-            <nav class="navbar">
-
-                {% block preheader_push %}
-                <section class="navbar-section">
-
-                    <div class="push-message">
-                        &ldquo; <sup>The</sup> website that has skaters quoting. &rdquo;
-                    </div>
-                </section>
-                {% endblock %}
-
-                {% block preheader_menu %}
-                <section class="navbar-section">
-
-                    <div class="utils-menu">
-                        {% include 'partials/social-networks.html.twig' %}
-                        &verbar;
-                        {% include 'partials/langswitcher.html.twig' %}
-                    </div>
-                </section>
-                {% endblock %}
-
-            </nav>
-            {% endblock %}
-
-        </div>
-    </div>
-{% endblock %}
-
 {% block header %}
-    <header id="header" class="header-main">
-        <div class="container grid-lg">
+    <header class="header header-hero">
+        <div class="container grid-xl">
 
             {% block header_navigation %}
             <nav class="navbar">
 
                 {% block header_brand %}
-                <section id="header-brand" class="navbar-section">
-                    <a href="{{ home_url }}" title="{{ config.site.title }}" class="navbar-brand">
+                <section class="navbar-center">
+                    <a class="navbar-brand" href="{{ home_url }}" title="{{ config.site.title }}">
                         <img src="{{ url("theme://images/logo.svg") }}" alt="theSQUOTEBOARDER" class="navbar-logo" />
                     </a>
                     <a class="off-canvas-toggle btn btn-primary btn-action show-md" href="#mobile-menu">
@@ -93,11 +60,11 @@
                 {% endblock %}
 
                 {% block header_menu %}
-                <section id="header-menu" class="navbar-section">
-                    <div class="site-menu hide-md">
+                <section class="navbar-section hide-md">
+                    <div class="site-menu">
                         {% include 'partials/navigation.html.twig' %}
                     </div>
-                    <div class="site-search hide-md">
+                    <div class="site-search">
                         {% include 'partials/search/simplesearch_searchbox.html.twig' %}
                     </div>
                 </section>
@@ -111,9 +78,9 @@
 {% endblock %}
 
 {% block body %}
-    <div id="content">
+    <main id="content">
         {% block content %}{% endblock %}
-    </div>
+    </main>
 {% endblock %}
 
 {% block footer %}
@@ -121,13 +88,13 @@
         <div class="container grid-xl">
 
             {% block footer_top %}
-            <section class="footer-top">
+            <section class="footer-top columns">
                 {% include 'partials/footer-top.html.twig' %}
             </section>
             {% endblock %}
 
             {% block footer_bottom %}
-            <section class="footer-bottom">
+            <section class="footer-bottom columns">
                 {% include 'partials/footer-bottom.html.twig' %}
             </section>
             {% endblock %}
@@ -140,17 +107,32 @@
     <div class="off-canvas">
 
         <div id="mobile-menu" class="off-canvas-sidebar">
+            <div class="container">
 
-            <div class="mobile-menu-section search-menu">
-                {% include 'partials/search/simplesearch_searchbox.html.twig' %}
-            </div>
+                <div class="mobile-menu-section site-search">
+                    {% include 'partials/search/simplesearch_searchbox.html.twig' %}
+                </div>
 
-            <div class="mobile-menu-section site-menu">
-                {% include 'partials/navigation.html.twig' %}
-            </div>
+                <div class="mobile-menu-section site-menu">
+                    {% include 'partials/navigation.html.twig' %}
+                    {% include 'partials/navigation_secondary.html.twig' %}
+                </div>
 
-            <div class="mobile-menu-section utils-menu">
-                {% include 'partials/langswitcher.html.twig' %}
+                <div class="mobile-menu-section utils-menu">
+                    {% include 'partials/langswitcher.html.twig' %}
+                </div>
+
+                {# <div class="mobile-menu-section navbar-baseline">
+                    <sup>The</sup> website<br />
+                    that has<br />
+                    skaters quoting &ldquo;&hellip;&rdquo;
+                </div> #}
+{#
+                <div class="mobile-menu-section network-infos">
+                    <span>Proud member of
+                    <span class="text-light bg-dark p-1 rounded">DERUE</span>
+                    #SkateCultureHub</span>
+                </div> #}
             </div>
         </div>
 
@@ -161,22 +143,6 @@
 {% block bottom %}
     {{ assets.js('bottom')|raw }}
 {% endblock %}
-{# <script>
-
-
-$(function() {
-    var header = $("#header");
-    $(window).scroll(function() {
-        var scroll = $(window).scrollTop();
-
-        if (scroll >= 500) {
-            header.removeClass("header-main").addClass("header-min");
-        } else {
-            header.removeClass("header-min");
-        }
-    });
-});
-</script> #}
 </div>
 </body>
 </html>

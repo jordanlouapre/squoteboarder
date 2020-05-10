@@ -1,3 +1,15 @@
+{% if display_mode == 'select'  %}
+<div class="dropdown dropdown-langswitcher">
+  <div class="btn-group">
+    <a href="#" class="btn">
+      {{ html_lang }}
+    </a>
+    <a href="#" class="btn dropdown-toggle" tabindex="0">
+      <i class="icon icon-caret"></i>
+    </a>
+    <ul class="menu">
+{% endif %}
+
 {% for language in langswitcher.languages %}
 
     {% set show_language = true %}
@@ -29,7 +41,17 @@
     {% endif %}
 
     {% if show_language %}
-        <a href="{{ lang_url ~ uri.params }}" class="btn btn-link lang {{ active_class }}">{{ language }}</a>
+        {% if display_mode == 'select'  %}
+            <li class="menu-item"><a href="{{ lang_url ~ uri.params }}" class="lang {{ active_class }}">{{ language }}</a></li>
+        {% else %}
+            <a href="{{ lang_url ~ uri.params }}" class="btn btn-link lang {{ active_class }}">{{ language }}</a>
+        {% endif %}
     {% endif %}
 
 {% endfor %}
+
+{% if display_mode == 'select'  %}
+    </ul>
+  </div>
+</div>
+{% endif %}

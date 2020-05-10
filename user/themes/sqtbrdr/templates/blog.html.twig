@@ -1,6 +1,22 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
+<div class="masthead container grid-xl">
+    <div class="columns">
+        <div class="column col-12">
+            <h1>{{ page.title }}</h1>
+            {{ page.content }}
+            {% block breadcrumbs %}
+                {% include 'partials/breadcrumbs.html.twig' %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+<div class="container grid-lg">
+    <div class="columns">
+
+
 {#
     <section class="hero hero-sm column col-12">
         <div class="hero-body">
@@ -14,7 +30,7 @@
         {% endblock %}
     </section> #}
 
-    <aside class="blogroll-sidebar column col-lg-12 col-2">
+    {# <aside class="blogroll-sidebar column col-lg-12 col-2">
 
         <div class="sidebar-widget widget-list">
             <ul class="menu">
@@ -50,8 +66,8 @@
         </div>
     </aside>
     <section class="blogroll column col-lg-12 col-1">
-    </section>
-    <section class="blogroll column col-lg-12 col-6">
+    </section> #}
+    {# <section class="blogroll column col-lg-12 col-8"> #}
 
         {# {% set collection = page.collection() %}
 
@@ -71,11 +87,11 @@
             </div>
         {% endif %} #}
 
-       <b>Nunc hendrerit</b> gravida consequat. Nam venenatis, metus eu tincidunt scelerisque, nulla ligula euismod ante, non pretium lectus ante vel dolor. Suspendisse sollicitudin bibendum velit. Maecenas nec eros ac leo faucibus varius. Duis porttitor non metus eget ultricies. Etiam sit amet lorem viverra, elementum lectus eget, iaculis lectus. Phasellus dictum a tortor vel condimentum. Vestibulum arcu ligula, suscipit quis enim sed, dictum volutpat mauris. Maecenas velit lectus, mattis ut sapien vitae, placerat ultricies lacus. Pellentesque pellentesque viverra faucibus. Aliquam vitae vehicula purus, id dignissim tellus. In vitae sem eu libero rutrum fermentum eget eu ex. Nunc non dolor eros.
+       {# <b>Nunc hendrerit</b> gravida consequat. Nam venenatis, metus eu tincidunt scelerisque, nulla ligula euismod ante, non pretium lectus ante vel dolor. Suspendisse sollicitudin bibendum velit. Maecenas nec eros ac leo faucibus varius. Duis porttitor non metus eget ultricies. Etiam sit amet lorem viverra, elementum lectus eget, iaculis lectus. Phasellus dictum a tortor vel condimentum. Vestibulum arcu ligula, suscipit quis enim sed, dictum volutpat mauris. Maecenas velit lectus, mattis ut sapien vitae, placerat ultricies lacus. Pellentesque pellentesque viverra faucibus. Aliquam vitae vehicula purus, id dignissim tellus. In vitae sem eu libero rutrum fermentum eget eu ex. Nunc non dolor eros.
 
-    </section>
+    </section> #}
 
-    <aside class="blogroll-sidebar column col-lg-12 col-3">
+    {# <aside class="blogroll-sidebar column col-lg-12 col-4">
 
         <div class="sidebar-widget">
             <h3>Nnisi non erat rhoncus</h3>
@@ -92,7 +108,10 @@
             Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean consectetur purus sapien, non efficitur felis ultrices nec.
         </div>
 
-    </aside>
+    </aside> #}
+
+    </div>
+</div>
 
 {% endblock %}
 

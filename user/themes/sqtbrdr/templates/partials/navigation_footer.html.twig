@@ -1,0 +1,4 @@
+{% for item in site.navigation_footer %}
+    {% set current_page = (item.active or item.activeChild) ? 'selected' : '' %}
+    <a href="{{ item.url }}" class="btn btn-link {{ current_page }}">{{ item.menu }}</a>
+{% endfor %}

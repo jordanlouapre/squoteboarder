@@ -18,6 +18,23 @@ summary:
   delimiter: '==='
 blog:
   route: /blog
+navigation_secondary:
+-
+  url: /about
+  menu: About
+-
+  url: /contact
+  menu: Contact
+navigation_footer:
+-
+  url: /terms-of-use
+  menu: Terms of use
+-
+  url: /privacy-policy
+  menu: Privacy policy
+-
+  url: /cookie-policy
+  menu: Cookie policy
 skateboarders:
   ekoston: Koston|Eric|froston
   sberra: Berra|Steve|sberra
