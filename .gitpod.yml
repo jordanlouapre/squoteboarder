@@ -1,3 +1,5 @@
+tasks:
+  - command: php -S localhost:8000 system/router.php
 vscode:
   extensions:
     - whatwedo.twig@1.0.2:yjUyDW+J4T2IZ2gBu830CQ==

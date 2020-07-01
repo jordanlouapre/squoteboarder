@@ -1,51 +1,84 @@
 {% set taxlist = taxonomylist.get() %}
 
-<aside class="blogroll-sidebar column col-lg-12 col-3">
-    <b>In efficitur</b>, mi in varius tincidunt, urna ipsum sodales quam, tempor ultrices leo ipsum a risus. Nullam eu leo lacus. Aenean eget enim et elit volutpat porttitor sed sed tortor. Curabitur varius neque lacus, id feugiat mi egestas dapibus. Donec tincidunt vitae dui sed pretium. Sed vitae porta turpis. Fusce rhoncus nulla sit amet varius hendrerit. Vivamus tincidunt fringilla fringilla. Curabitur sed est eu felis suscipit porttitor.
-</aside>
+<div class="container grid-xl">
+    <div class="columns">
 
-{% if taxlist %}
+        <aside class="blogroll-sidebar column col-sm-12 col-md-3 col-lg-3 col-2">
 
-<section class="blogroll column col-lg-12 col-6">
+            {# <div class="sidebar-widget widget-list">
+                <ul class="menu">
+                    <li class="divider" data-content="CATEGORIES"></li>
+                    {% if page.route == '/quotes' %}
+                        {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/quotes', taxonomy: 'category', children_only: true} %}
+                    {% elseif page.route == '/blog' %}
+                        {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/blog', taxonomy: 'category', children_only: true} %}
+                    {% endif %}
+                </ul>
+            </div> #}
+        </aside>
 
-    {% for tax,value in taxlist['author'] %}
+        <section class="blogroll-content column col-sm-12 col-md-6 col-lg-6 col-7">
 
-    <div class="tile">
-        <div class="tile-icon">
-            <figure class="avatar avatar-sm" data-initial="{{ site.skateboarders[tax]|split('|')|slice(1, 1)|join[:1] }}{{ site.skateboarders[tax]|split('|')|slice(0, 1)|join[:1] }}"></figure>
-        </div>
-        <div class="tile-content">
-            <p class="tile-title">
-                <a href="{{ base_url }}/quotes/author{{ config.system.param_sep }}{{ tax }}">
-                    {{ site.skateboarders[tax]|split('|')|slice(1, 1)|join }} {{ site.skateboarders[tax]|split('|')|slice(0, 1)|join }}
-                </a>
-            </p>
-            {# <p class="tile-subtitle">Earth's Mightiest Heroes joined forces to take on threats that were too big for any one hero to tackle...</p> #}
-        </div>
-        {# <div class="tile-action">
-            <button class="btn">Contact</button>
-        </div> #}
-    </div>
+            <div class="blogroll-navigation navbar">
 
-    {% endfor %}
+                <section class="navbar-section">
+                    <h1>{{ page.title }}</h1>
+                </section>
 
-</section>
+                {# <section class="navbar-section hide-md">
+                    <a href="{{ page.url }}" class="btn btn-link {{ current_page }}">Feed</a>
+                    <a href="{{ page.url }}/{{ config.plugins.archives.taxonomy_names.month }}{{ config.system.param_sep }}{{ month|date('M_Y')|lower|e('url') }}" class="btn btn-link {{ current_page }}">Month</a>
+                    <a href="{{ page.url }}/{{ config.plugins.archives.taxonomy_names.year }}{{ config.system.param_sep }}{{ year|date('Y')|lower|e('url') }}" class="btn btn-link {{ current_page }}">Year</a>
+                </section> #}
+            </div>
 
-<aside class="blogroll-sidebar column col-lg-12 col-3">
-    <b>Sed porta</b> nisi non erat rhoncus, nec porta sapien lacinia. Cras scelerisque massa eu mi molestie placerat. Ut et nunc vitae lorem aliquam maximus a ut mi. Vestibulum elementum maximus velit. Aliquam maximus accumsan malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean consectetur purus sapien, non efficitur felis ultrices nec. Suspendisse faucibus nisi rhoncus arcu euismod, id elementum ex bibendum. Etiam quis aliquam mi.
-</aside>
+            {% if taxlist %}
 
-{% else %}
+                {% for tax,value in taxlist['author'] %}
 
-<div class="empty column col-12">
-    <div class="empty-icon">
-        <i class="icon icon-2x icon-flag"></i>
-    </div>
-    <p class="empty-title h5">No author righ now</p>
-    <p class="empty-subtitle">But it will come.</p>
-    <div class="empty-action">
-        <a href="{{ base_url }}/quotes" class="btn btn-link">Back to Quotes</a>
+                <div class="tile">
+                    <div class="tile-icon">
+                        <figure class="avatar avatar-sm" data-initial="{{ site.skateboarders[tax]|split('|')|slice(1, 1)|join[:1] }}{{ site.skateboarders[tax]|split('|')|slice(0, 1)|join[:1] }}"></figure>
+                    </div>
+                    <div class="tile-content">
+                        <p class="tile-title">
+                            <a href="{{ base_url }}/quotes/author{{ config.system.param_sep }}{{ tax }}">
+                                {{ site.skateboarders[tax]|split('|')|slice(1, 1)|join }} {{ site.skateboarders[tax]|split('|')|slice(0, 1)|join }}
+                            </a>
+                            <a href="#">
+                                @{{ site.skateboarders[tax]|split('|')|slice(2, 1)|join }}
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                {% endfor %}
+
+            {% else %}
+
+            <div class="empty">
+                <div class="empty-icon">
+                    <i class="icon icon-2x icon-flag"></i>
+                </div>
+                <p class="empty-title h5">No author right now</p>
+                <p class="empty-subtitle">But it will come...</p>
+                <div class="empty-action">
+                    <a href="{{ base_url }}/quotes" class="btn btn-link">Back to Quotes</a>
+                </div>
+            </div>
+
+            {% endif %}
+
+        </section>
+
+        <aside class="blogroll-sidebar column col-sm-12 col-md-3 col-lg-3 col-3">
+
+            <div class="sidebar-widget">
+                <h3>Magnis dis parturient montes</h3>
+                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean consectetur purus sapien, non efficitur felis ultrices nec.
+            </div>
+
+        </aside>
+
     </div>
 </div>
-
-{% endif %}

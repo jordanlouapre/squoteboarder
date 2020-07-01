@@ -3,18 +3,18 @@
 
 {% if pagination|length > 1 %}
 
-<ul class="pagination">
+<ul class="pagination p-centered">
     {% if pagination.hasPrev %}
         {% set url =  (base_url ~ pagination.params ~ pagination.prevUrl)|replace({'//':'/'}) %}
-        <li class="page-item"><a rel="prev" href="{{ url }}">&laquo;</a></li>
+        <li class="page-item"><a rel="prev" href="{{ url }}">Prev</a></li>
     {% else %}
-        <li class="page-item"><span>&laquo;</span></li>
+        <li class="page-item disabled"><a href="#" tabindex="-1">Prev</a></li>
     {% endif %}
 
     {% for paginate in pagination %}
 
         {% if paginate.isCurrent %}
-            <li class="page-item active">{{ paginate.number }}</li>
+            <li class="page-item active"><a href="#">{{ paginate.number }}</a></li>
         {% elseif paginate.isInDelta %}
             {% set url = (base_url ~ pagination.params ~ paginate.url)|replace({'//':'/'}) %}
             <li class="page-item"><a href="{{ url }}">{{ paginate.number }}</a></li>
@@ -25,9 +25,9 @@
     {% endfor %}
     {% if pagination.hasNext %}
         {% set url = (base_url ~ pagination.params ~ pagination.nextUrl)|replace({'//':'/'}) %}
-        <li class="page-item"><a rel="next" href="{{ url }}">&raquo;</a></li>
+        <li class="page-item"><a rel="next" href="{{ url }}">Next</a></li>
     {% else %}
-        <li class="page-item"><span>&raquo;</span></li>
+        <li class="page-item disabled"><a href="#" tabindex="-1">Next</a></li>
     {% endif %}
 </ul>
 

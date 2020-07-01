@@ -1,114 +1,130 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-<div class="masthead container grid-xl">
-    <div class="columns">
-        <div class="column col-12">
-            <h1>{{ page.title }}</h1>
-            {{ page.content }}
-            {% block breadcrumbs %}
-                {% include 'partials/breadcrumbs.html.twig' %}
-            {% endblock %}
-        </div>
-    </div>
-</div>
-
-<div class="container grid-lg">
+<div class="container grid-xl">
     <div class="columns">
 
+        <aside class="blogroll-sidebar column col-sm-12 col-md-12 col-lg-3 col-2">
 
-{#
-    <section class="hero hero-sm column col-12">
-        <div class="hero-body">
-            <h1>{{ page.title }}</h1>
-        </div>
-    </section>
-
-    <section class="content-utils column col-12">
-        {% block breadcrumbs %}
-            {% include 'partials/breadcrumbs.html.twig' %}
-        {% endblock %}
-    </section> #}
-
-    {# <aside class="blogroll-sidebar column col-lg-12 col-2">
-
-        <div class="sidebar-widget widget-list">
-            <ul class="menu">
-                <li class="divider" data-content="TAGS">
-                </li>
-                <li class="menu-item">
-                {% if page.route == '/quotes' %}
-                    {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/quotes', taxonomy: 'tag', children_only: true} %}
-                {% elseif page.route == '/blog' %}
-                    {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/blog', taxonomy: 'tag', children_only: true} %}
-                {% endif %}
-                </li>
-            </ul>
-        </div>
-
-        <div class="sidebar-widget widget-list">
-            <ul class="menu">
-                <li class="divider" data-content="CATEGORIES">
-                {% if page.route == '/quotes' %}
-                    {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/quotes', taxonomy: 'category', children_only: true} %}
-                {% elseif page.route == '/blog' %}
-                    {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/blog', taxonomy: 'category', children_only: true} %}
-                {% endif %}
-            </ul>
-        </div>
-
-        <div class="sidebar-widget widget-list">
-            <ul class="menu">
-                <li class="divider" data-content="ARCHIVES">
-                {% include 'partials/blog/archives.html.twig' with {'base_url':page.url} %}
-
-            </ul>
-        </div>
-    </aside>
-    <section class="blogroll column col-lg-12 col-1">
-    </section> #}
-    {# <section class="blogroll column col-lg-12 col-8"> #}
-
-        {# {% set collection = page.collection() %}
-
-        {% if page.route == '/quotes' %}
-            {% for child in collection %}
-                {% include 'partials/blog-list-quote-item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
-            {% endfor %}
-        {% elseif page.route == '/blog' %}
-            {% for child in collection %}
-                {% include 'partials/blog-list-post-item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
-            {% endfor %}
-        {% endif %}
-
-        {% if config.plugins.pagination.enabled and collection.params.pagination %}
-            <div class="text-center">
-                {% include 'partials/blog/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
+            <div class="sidebar-widget widget-list">
+                <h3>Categories</h3>
+                <ul class="menu">
+                    {% if page.route == '/quotes' %}
+                        {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/quotes', taxonomy: 'category', children_only: true} %}
+                    {% elseif page.route == '/blog' %}
+                        {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/blog', taxonomy: 'category', children_only: true} %}
+                    {% endif %}
+                </ul>
             </div>
-        {% endif %} #}
 
-       {# <b>Nunc hendrerit</b> gravida consequat. Nam venenatis, metus eu tincidunt scelerisque, nulla ligula euismod ante, non pretium lectus ante vel dolor. Suspendisse sollicitudin bibendum velit. Maecenas nec eros ac leo faucibus varius. Duis porttitor non metus eget ultricies. Etiam sit amet lorem viverra, elementum lectus eget, iaculis lectus. Phasellus dictum a tortor vel condimentum. Vestibulum arcu ligula, suscipit quis enim sed, dictum volutpat mauris. Maecenas velit lectus, mattis ut sapien vitae, placerat ultricies lacus. Pellentesque pellentesque viverra faucibus. Aliquam vitae vehicula purus, id dignissim tellus. In vitae sem eu libero rutrum fermentum eget eu ex. Nunc non dolor eros.
+            <div class="sidebar-widget widget-list">
+                <h3>Tags</h3>
+                <ul class="menu">
+                    <li class="menu-item">
+                    {% if page.route == '/quotes' %}
+                        {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/quotes', taxonomy: 'tag', children_only: true} %}
+                    {% elseif page.route == '/blog' %}
+                        {% include 'partials/blog/taxonomylist.html.twig' with {base_url: '/blog', taxonomy: 'tag', children_only: true} %}
+                    {% endif %}
+                    </li>
+                </ul>
+            </div>
 
-    </section> #}
+            <div class="sidebar-widget widget-list">
+                <h3>Archives</h3>
+                <ul class="menu">
+                    {% include 'partials/blog/archives.html.twig' with {'base_url':page.url} %}
+                </ul>
+            </div>
+        </aside>
 
-    {# <aside class="blogroll-sidebar column col-lg-12 col-4">
+        <section class="blogroll-content column col-sm-12 col-md-12 col-lg-6 col-7">
 
-        <div class="sidebar-widget">
-            <h3>Nnisi non erat rhoncus</h3>
-            <b>Sed porta</b> nisi non erat rhoncus, nec porta sapien lacinia. Cras scelerisque massa eu mi molestie placerat.
-        </div>
+            <div class="blogroll-navigation navbar">
 
-        <div class="sidebar-widget widget-subtle">
-            <h3>Vestibulum elementum maximus</h3>
-            Ut et nunc vitae lorem aliquam maximus a ut mi. Vestibulum elementum maximus velit. Aliquam maximus accumsan malesuada.
-        </div>
+                <section class="navbar-section">
+                    <h1>{{ page.title }}</h1>
+                </section>
 
-        <div class="sidebar-widget">
-            <h3>Magnis dis parturient montes</h3>
-            Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean consectetur purus sapien, non efficitur felis ultrices nec.
-        </div>
+                <section class="navbar-section">
+                    {% include 'partials/navigation_blogroll.html.twig' %}
+                </section>
+            </div>
 
-    </aside> #}
+            {% set collection = page.collection() %}
+
+            {% if collection is not empty %}
+
+                {% if page.route == '/quotes' %}
+                    {% for child in collection %}
+                        {% include 'partials/blog-list-quote-item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
+                    {% endfor %}
+                {% elseif page.route == '/blog' %}
+                    {% for child in collection %}
+                        {% include 'partials/blog-list-post-item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
+                    {% endfor %}
+                {% endif %}
+
+                {% if config.plugins.pagination.enabled and collection.params.pagination %}
+                <div class="blogroll-pagination">
+                    {% include 'partials/blog/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
+                </div>
+                {% endif %}
+
+            {% else %}
+
+                <div class="empty">
+                    <div class="empty-icon">
+                        <i class="icon icon-2x icon-flag"></i>
+                    </div>
+                    <p class="empty-title h5">No quote right now</p>
+                    <p class="empty-subtitle">But it will come...</p>
+                    <div class="empty-action">
+                        <a href="{{ base_url }}" class="btn btn-link">Back to Home</a>
+                    </div>
+                </div>
+
+            {% endif %}
+        </section>
+
+        <aside class="blogroll-sidebar column col-sm-12 col-md-12 col-lg-3 col-3">
+
+            <div class="sidebar-widget">
+
+
+                <div class="card">
+                  <div class="card-image"><img src="images/theSQUOTEBOARDER-InSitu-CLEAR@3x.jpg" class="img-responsive"></div>
+                  <div class="card-header">
+                    <div class="card-title h5">Microsoft</div>
+                    <div class="card-subtitle text-gray">Software and hardware</div>
+                  </div>
+                  <div class="card-body">Empower every person and every organization on the planet to achieve more.</div>
+                  <div class="card-footer"><a class="btn btn-primary" href="#cards">Read more</a></div>
+                </div>
+            </div>
+
+            <div class="sidebar-widget widget-subtle">
+                <div class="panel">
+                  <div class="panel-header text-center">
+                    <figure class="avatar avatar-lg"><img src="https://picturepan2.github.io/spectre/img/avatar-2.png" alt="Avatar"></figure>
+                    <div class="panel-title h5 mt-10">Bruce Banner</div>
+                    <div class="panel-subtitle">THE HULK</div>
+                  </div>
+                  <div class="panel-body">
+
+                  </div>
+                  <div class="panel-footer">
+                    <button class="btn btn-primary btn-block">Save</button>
+                  </div>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>Magnis dis parturient montes</h3>
+                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean consectetur purus sapien, non efficitur felis ultrices nec.
+            </div>
+
+        </aside>
 
     </div>
 </div>

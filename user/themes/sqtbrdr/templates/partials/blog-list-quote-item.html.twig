@@ -2,7 +2,7 @@
 
     <div class="card-body">
 
-        <div class="card-header">
+        <header class="card-header">
 
             <span class="quote-date">
                 {% if page.header.quote.source_media_issue_date %}
@@ -28,7 +28,7 @@
                 {% endfor %}
             </span>
             {% endif %}
-        </div>
+        </header>
 
         <div class="card-content">
 
@@ -42,8 +42,8 @@
                 &mdash;
                 <div class="chip">
                     {% for author in page.taxonomy.author %}
-                        {# <figure class="avatar avatar-sm" data-initial="{{ site.skateboarders[author]|split('|')|slice(1, 1)|join[:1] }}{{ site.skateboarders[author]|split('|')|slice(0, 1)|join[:1] }}"></figure> #}
-                        <img class="avatar avatar-sm" src="https://picturepan2.github.io/spectre/img/avatar-1.png" alt="Steve Rogers">
+                        <figure class="avatar avatar-sm" data-initial="{{ site.skateboarders[author]|split('|')|slice(1, 1)|join[:1] }}{{ site.skateboarders[author]|split('|')|slice(0, 1)|join[:1] }}"></figure>
+                        {# <img class="avatar avatar-sm" src="https://picturepan2.github.io/spectre/img/avatar-1.png" alt="Steve Rogers"> #}
                         <a href="{{ blog.url|rtrim('/') }}/author{{ config.system.param_sep }}{{ author }}">
                             {{ site.skateboarders[author]|split('|')|slice(1, 1)|join }} {{ site.skateboarders[author]|split('|')|slice(0, 1)|join }}
                         </a>
@@ -53,7 +53,7 @@
 
                 {% if page.header.quote.about %}
                 <span class="quote-about">
-                    about {{ page.header.quote.about }}
+                    {{ page.header.quote.about }}
                 </span>
                 {% endif %}
             </div>
@@ -61,8 +61,8 @@
 
     </div>
 
-    <div class="card-footer">
+    <footer class="card-footer">
         {% include 'partials/blog/taxonomy.html.twig' %}
-    </div>
+    </footer>
 
 </article>

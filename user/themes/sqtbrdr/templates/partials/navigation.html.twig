@@ -1,4 +1,4 @@
 {% for page in pages.children.visible %}
-    {% set current_page = (page.active or page.activeChild) ? 'selected' : '' %}
+    {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
     <a href="{{ page.url }}" class="btn btn-link {{ current_page }}">{{ page.menu }}</a>
 {% endfor %}

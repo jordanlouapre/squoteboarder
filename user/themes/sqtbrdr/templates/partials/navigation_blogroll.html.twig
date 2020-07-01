@@ -1,0 +1,7 @@
+{% set current_feed = ((page.slug == 'blog' or page.slug == 'quotes') and uri.params == '') ? 'active' : '' %}
+{% set current_month = ('month' in uri.params) ? 'active' : '' %}
+{% set current_year = ('year' in uri.params) ? 'active' : '' %}
+
+<a href="{{ page.url }}" class="btn btn-link {{ current_feed }}">Feed</a>
+<a href="{{ page.url }}/{{ config.plugins.archives.taxonomy_names.month }}{{ config.system.param_sep }}{{ month|date('M_Y')|lower|e('url') }}" class="btn btn-link {{ current_month }}">Month</a>
+<a href="{{ page.url }}/{{ config.plugins.archives.taxonomy_names.year }}{{ config.system.param_sep }}{{ year|date('Y')|lower|e('url') }}" class="btn btn-link {{ current_year }}">Year</a>

@@ -107,6 +107,9 @@ a, input, button {
     color:#000;
     text-decoration: underline;
 }
+.site-menu .btn.active {
+    color:#000;
+}
 
 .site-search .search-input {
     border-color: #f9f9f9;
@@ -268,7 +271,8 @@ a, input, button {
 
 /* FOOTER-TOP */
 #footer {
-    padding: 32rem 0 0 0;
+    padding: 0 0 0 0;
+    background-color: #111;
 }
 
 #footer section {
@@ -278,7 +282,8 @@ a, input, button {
     color:#f2f2f2;
     background-color: #111;
 }
-.footer-top-section .btn {
+.footer-top-section .btn,
+.footer-top-section .btn.active {
     color:#f2f2f2;
 }
 .footer-top-section .btn:hover,
@@ -412,10 +417,10 @@ a, input, button {
     /* box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); */
 }
 .home .hero .figure img {
-    height: 60vh;
+    width: 30vh;
 }
 .home .hero .hero-quote  {
-    height: 60vh;
+    width: 45vh;
     display: table-cell;
     vertical-align: middle;
     border-left:0 none;
@@ -428,13 +433,33 @@ a, input, button {
     /* font-size: 1rem; */
 }
 
-.blog .masthead {
-    background: #ffe0ed;
+.blog #content {
+    padding: 1.2rem 0 0 0;
+}
+.sidebar-widget {
+
+}
+.sidebar-widget.widget-list {
+
+}
+.sidebar-widget .menu {
+    border-radius: inherit;
+    box-shadow: inherit;
+    list-style: none;
+    margin: 0;
+    min-width: inherit;
+    padding: .4rem;
+    transform: none;
+    z-index:unset;
+}
+.sidebar-widget .menu .menu-item {
+    position: inherit;
 }
 
+
 .blogroll-sidebar {
-    position: relative;
-    z-index: -999;
+    /* position: relative;
+    z-index: -999; */
     /* z-index: -999;
     position: relative; */
     /* margin-right:-9999rem;
@@ -442,15 +467,15 @@ a, input, button {
     /* background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/concrete-texture.png'); */
 }
 .blogroll-sidebar:before {
-    width: 9999rem;
+    /* width: 9999rem;
     height: 100%;
-    display: block;
+    display: block; */
     /* background: blue; */
-    content: "";
+    /* content: "";
     position: absolute;
     left: 0;
     z-index: -1;
-    background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/lined_paper.png');
+    background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/lined_paper.png'); */
 }
 
 /* MOBILE-MENU */
@@ -495,6 +520,7 @@ a, input, button {
     height: 2.4rem;
     font-size: 1.2rem;
 }
+
 #mobile-menu .utils-menu {
     padding-top: 0;
 }
@@ -546,6 +572,18 @@ a, input, button {
         padding-right: 0;
     }
 
+    .blog .blogroll-sidebar {
+        -webkit-order: 1;
+        order: 1;
+    }
+    .blog .blogroll-sidebar .sidebar-widget.widget-list .menu {
+        overflow: auto;
+        white-space: nowrap;
+    }
+    .blog .blogroll-sidebar .sidebar-widget.widget-list .menu-item {
+        display: inline-block;
+    }
+
 }
 @media screen and (max-width: 600px ) {
 
@@ -553,6 +591,7 @@ a, input, button {
         text-align: left;
     }
     .footer-top .column .columns .column.col-6 + .column.col-6 {
+        -webkit-order: -1;
         order: -1;
     }
     .footer-top-section.footer-branding p {

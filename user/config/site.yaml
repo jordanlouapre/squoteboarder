@@ -36,8 +36,20 @@ navigation_footer:
   url: /cookie-policy
   menu: Cookie policy
 skateboarders:
+  atravis: Travis|Anthony|anttravis
+  ebowman: Bowman|Ewan|bo_def_son
   ekoston: Koston|Eric|froston
+  gcrockett: Crockett|Gilbert|ceeblues
+  kpalmer: Palmer|Keegan|keeganpalmer
+  jfoy: Foy|Jamie|jamie_foy
+  marnold: Arnold|Mike|mikearnoldeluxe
+  mbublitz: Bublitz|Matthew|mattbublitz
+  mmartinez: Martinez|Milton|miltonmartinez
+  pdelfino: Delfino|Pedro|_pedrodelfino
+  rsandoval: Sandoval|Ronnie|ronniesandoval_nfc
   sberra: Berra|Steve|sberra
+  tkirby: Kirby|Taylor|kirby29
+  wkremer: Kremer|Wes|sk8mafia
 images_dir: user/pages/images
 source_medias:
   thrashermagazine: 'Thrasher Magazine|https://www.thrashermagazine.com/'
